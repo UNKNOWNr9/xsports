@@ -1,0 +1,76 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="background-attachement" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="←" />
+            <item index="1" class="java.lang.String" itemvalue="alt" />
+            <item index="2" class="java.lang.String" itemvalue="open" />
+            <item index="3" class="java.lang.String" itemvalue="href" />
+            <item index="4" class="java.lang.String" itemvalue="rows" />
+            <item index="5" class="java.lang.String" itemvalue="value" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="9">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="ul" />
+            <item index="7" class="java.lang.String" itemvalue="a" />
+            <item index="8" class="java.lang.String" itemvalue="main-nav" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="12">
+            <item index="0" class="java.lang.String" itemvalue="django-crispy-forms" />
+            <item index="1" class="java.lang.String" itemvalue="django-jalali-date" />
+            <item index="2" class="java.lang.String" itemvalue="django-render-partial" />
+            <item index="3" class="java.lang.String" itemvalue="Django" />
+            <item index="4" class="java.lang.String" itemvalue="pillow" />
+            <item index="5" class="java.lang.String" itemvalue="tzdata" />
+            <item index="6" class="java.lang.String" itemvalue="jdatetime" />
+            <item index="7" class="java.lang.String" itemvalue="setuptools" />
+            <item index="8" class="java.lang.String" itemvalue="sorl-thumbnail" />
+            <item index="9" class="java.lang.String" itemvalue="jalali_core" />
+            <item index="10" class="java.lang.String" itemvalue="asgiref" />
+            <item index="11" class="java.lang.String" itemvalue="sqlparse" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

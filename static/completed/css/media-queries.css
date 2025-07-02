@@ -1,0 +1,79 @@
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+    .search-icon {
+        position: absolute;
+        width: 45px;
+        right: 45px;
+        top: 0;
+        bottom: 0;
+        background-color: #FF4A52;
+    }
+    .search-icon a {
+        color: white!important;
+    }
+    .drop-down-menu {
+        position: absolute;
+        width: 45px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #1EC6B6;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    nav li {
+        display: inline-block;
+    }
+    .drop-down-menu {
+        display: none!important;
+    }
+    /* .search-icon {
+        right: 0;
+    } */
+    footer {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .search-icon {
+        width: 100px;
+    }
+    .search-bar {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .search-form {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .newsletter-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .mail-form {
+        /* flex-direction: row; */
+        display: block;
+    }
+    .newsletter-text {
+        margin-top: 0;
+        margin-right: 10px;
+    }
+}
