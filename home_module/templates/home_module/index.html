@@ -1,15 +1,55 @@
 {% load static %}
-<!doctype html>
-<html lang="fa">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'home_module/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home_module/css/media-queries.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
 </head>
 <body>
-
+<header class="d-flex">
+    <div>
+        <a href="#">
+            <img src="{% static 'home_module/images/logo.png' %}" alt="">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Destination</li>
+            <li>Pages</li>
+            <li>Blog</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <div>
+        <div class="search-icon d-flex">
+            <a href="#">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+        <div class="drop-down-menu d-flex">
+            <a href="#">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="slider">
+        <div class="slider-text d-flex">
+            <h3>Australia</h3>
+            <p>Pixel perfect design with awesome contents</p>
+            <a href="#" class="slider-btn">Explore Now</a>
+        </div>
+    </section>
+</main>
+<footer></footer>
 </body>
+
 </html>

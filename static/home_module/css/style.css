@@ -3,3 +3,100 @@
     padding: 0;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    transition: color .2s;
+}
+
+a:hover {
+    color: #FF4A52;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+li:hover {
+    color: #FF4A52;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.d-flex {
+    display: flex!important;
+}
+
+.w-100 {
+    width: 100%!important;
+}
+
+.w-50 {
+    width: 50%!important;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+}
+
+.font-15 {
+    font-size: 15px!important;
+}
+
+header {
+    background-color: #ffffff;
+    justify-content: space-around;
+    padding: 25px 0;
+    position: relative;
+}
+
+nav li {
+    display: none;
+    margin-right: 35px;
+    font-size: 1.3em;
+    margin-top: 13px;
+}
+
+.search-icon {
+    justify-content: center;
+    align-items: center;
+}
+
+.search-icon a {
+    color: black;
+}
+
+.drop-down-menu a {
+    color: black;
+}
+
+.slider {
+    background-image: url("../images/banner2.png");
+    background-repeat: no-repeat;
+    height: 50vw;
+    background-size: cover;
+}
+
+.slider-text {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 45em;
+    align-items: center;
+}
+
+.slider-text h3 {
+    font-size: 8vw;
+    font-family: "Nothing You Could Do", cursive;
+    color: #FFFFFF;
+    font-weight: 400;
+}

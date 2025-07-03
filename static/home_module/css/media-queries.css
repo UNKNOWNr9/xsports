@@ -1,0 +1,50 @@
+@media (min-width: 576px) {
+    .search-icon {
+        position: absolute;
+        width: 45px;
+        right: 45px;
+        top: 0;
+        bottom: 0;
+        background-color: #FF4A52;
+    }
+
+    .search-icon a {
+        color: white !important;
+    }
+
+    .drop-down-menu {
+        position: absolute;
+        width: 45px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #1EC6B6;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+    nav li {
+        display: inline-block;
+    }
+
+    .drop-down-menu {
+        display: none !important;
+    }
+
+     .search-icon {
+        right: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .search-icon {
+        width: 100px;
+    }
+}
