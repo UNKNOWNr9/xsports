@@ -1,3 +1,5 @@
+/* Small devices (landscape phones, 576px and up) */
+
 @media (min-width: 576px) {
     .search-icon {
         position: absolute;
@@ -7,11 +9,9 @@
         bottom: 0;
         background-color: #FF4A52;
     }
-
     .search-icon a {
-        color: white !important;
+        color: white!important;
     }
-
     .drop-down-menu {
         position: absolute;
         width: 45px;
@@ -26,25 +26,39 @@
 }
 
 
-@media (min-width: 768px) {
-}
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {}
+
+
+/* Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
     nav li {
         display: inline-block;
     }
-
     .drop-down-menu {
-        display: none !important;
+        display: none!important;
     }
-
-     .search-icon {
+    /* .search-icon {
         right: 0;
-    }
+    } */
 }
+
+
+/* Extra large devices (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) {
     .search-icon {
         width: 100px;
+    }
+    .search-bar {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .search-form {
+        flex-direction: row;
+        justify-content: center;
     }
 }
