@@ -1650,7 +1650,7 @@ span {
 .modal-common-wrap .modal-body .gt-join-club-form .gt-join-club-content .form-clt span {
   font-size: 18px;
   font-weight: 600;
-  color: "Chakra Petch", sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   color: var(--gt-header);
   padding-bottom: 12px;
   display: inline-block;
@@ -4450,7 +4450,7 @@ span {
 }
 @media (max-width: 767px) {
   .gt-game-detaills-wrapper .gt-details-post-item .gt-game-details-item .gt-details-content h3 {
-    font-size: 30;
+    font-size: 30px;
   }
 }
 @media (max-width: 575px) {
@@ -5369,7 +5369,7 @@ span {
   color: var(--gt-theme) !important;
 }
 .style-offcanvas-2 .mean-container .mean-nav ul li > a.mean-expand i {
-  font-size: 24px I !important;
+  font-size: 24px !important;
 }
 
 .offcanvas__info {
@@ -10093,7 +10093,7 @@ span {
   border-color: var(--gt-theme);
 }
 .shop-details-wrapper .gt-shop-tab-area .tab-content .th-coustumer-riview .gt-comment-form-wrap .form-check .form-check-input:focus {
-  border-color: none;
+  border: none;
   outline: 0;
   box-shadow: none;
 }
@@ -10625,7 +10625,7 @@ span {
   border-color: var(--gt-theme);
 }
 .checkout-radio .checkout-radio-wrapper .checkout-radio-single .form-check-input:focus {
-  border-color: none;
+  border: none;
   outline: 0;
   box-shadow: none;
 }

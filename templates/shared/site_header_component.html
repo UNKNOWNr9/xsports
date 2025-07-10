@@ -1,0 +1,58 @@
+{% load static %}
+<header id="header-sticky" class="header-1">
+    <div class="container-fluid rtl">
+        <div class="mega-menu-wrapper">
+            <div class="header-main">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="{% url 'home' %}" class="header-logo">
+                            <img src="{% static 'xsports/img/logo/white-logo.svg' %}" alt="logo-img">
+                        </a>
+                    </div>
+                    <div class="mean__menu-wrapper">
+                        <div class="main-menu">
+                            <nav id="mobile-menu">
+                                <ul>
+                                    <li class="has-dropdown active menu-thumb">
+                                        <a href="{% url 'home' %}">
+                                            خانه
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            فروشگاه
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'article_list' %}">
+                                            وبلاگ
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">تماس با ما</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right d-flex justify-content-end align-items-center">
+                    <div class="header-right-icon">
+                        <a href="#" class="main-header__search search-toggler">
+                            <i class="fa-regular fa-magnifying-glass"></i>
+                        </a>
+                        <a href="#">
+                            <i class="far fa-shopping-cart"></i>
+                        </a>
+                        <a href="#" class="game-icon">ورود / ثبت نام</a>
+                    </div>
+                    <div class="header__hamburger d-xl-block my-auto">
+                        <div class="sidebar__toggle">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
