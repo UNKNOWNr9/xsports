@@ -1,5 +1,6 @@
 {% extends 'shared/_layout.html' %}
 {% load static %}
+{% load thumbnail %}
 {% block title %}وبلاگ{% endblock %}
 {% block header_bg %}{% static 'xsports/img/home-2/hero/hero-bg.png' %}{% endblock %}
 {% block hero_bg %}{% static 'xsports/img/home-2/hero/hero-01.png' %}{% endblock %}
@@ -11,109 +12,55 @@
                 <div class="row g-4">
                     <div class="col-12 col-lg-8">
                         <div class="gt-news-standard-items">
-                            <div class="gt-news-card-items-5">
-                                <div class="gt-news-image">
-                                    <img src="{% static 'xsports/img/inner-page/news-details/details-1.jpg' %}" alt="img">
-                                </div>
-                                <div class="gt-news-content">
-                                    <ul class="gt-date-list">
-                                        <li>
-                                            <i class="fa-solid fa-calendar-days"></i>
-                                            یازده ازدیبهشت 1403
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-comments"></i>
-                                            19 نظر
-                                        </li>
-                                    </ul>
-                                    <h3>
-                                        <a href="#">
-                                            سی پنل چیست؟ راهنمای کامل تسلط بر کنترل پنل. لورم <br>ایپسوم متن ساختگی با
-                                            تولید
+                            {% for obj in object_list %}
+                                <div class="gt-news-card-items-5 mb-10">
+                                    <div class="gt-news-image">
+                                        {% thumbnail obj.image "856x402" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+                                                 alt="img">
+                                        {% endthumbnail %}
+                                    </div>
+                                    <div class="gt-news-content">
+                                        <ul class="gt-date-list">
+                                            <li>
+                                                <i class="fa-solid fa-calendar-days"></i>
+                                                {{ obj.create_date }}
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-comments"></i>
+                                                19 نظر
+                                            </li>
+                                        </ul>
+                                        <h3>
+                                            <a href="{% url 'article_detail' slug=obj.slug %}">
+                                                {{ obj.title }}
+                                            </a>
+                                        </h3>
+                                        <p>
+                                            {{ obj.content | truncatewords:100 }}
+                                        </p>
+                                        <a href="{% url 'article_detail' obj.slug %}" class="gt-theme-btn">
+                                            بیشتر بخوانید
                                         </a>
-                                    </h3>
-                                    <p>
-                                        در ماه‌های گذشته، پال‌ورد به سرعت پیروانی جمع‌آوری کرد و قبل از اینکه به یکی از
-                                        موفق‌ترین بازی‌های مستقل ویدئویی تمام دوران تبدیل شود.لورم ایپسوم متن ساختگی با
-                                        تولید سادگی نامفهوم
-                                    </p>
-                                    <a href="#" class="gt-theme-btn">
-                                        بیشتر بخوانید
-                                    </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="gt-news-card-items-5">
-                                <div class="gt-news-image">
-                                    <img src="{% static 'xsports/img/inner-page/news-details/details-2.jpg' %}" alt="img">
-                                </div>
-                                <div class="gt-news-content">
-                                    <ul class="gt-date-list">
-                                        <li>
-                                            <i class="fa-solid fa-calendar-days"></i>
-                                            یازده ازدیبهشت 1403
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-comments"></i>
-                                            19 نظر
-                                        </li>
+                            {% endfor %}
+                            <!-- Paginator -->
+                            {% if is_paginated %}
+                                <div class="gt-page-nav-wrap pt-5 text-start">
+                                    <ul class="justify-content-start">
+                                        {% if page_obj.has_previous %}
+                                            <li><a class="gt-page-numbers" href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-chevron-right"></i></a></li>
+                                        {% endif %}
+                                        {% for PageNumber in paginator.page_range %}
+                                            <li><a class="gt-page-numbers {% if page_obj.number == PageNumber %}active{% endif %}" href="?page={{ PageNumber }}">{{ PageNumber }}</a></li>
+                                        {% endfor %}
+                                        {% if page_obj.has_next %}
+                                            <li><a class="gt-page-numbers" href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-chevron-left"></i></a></li>
+                                        {% endif %}
                                     </ul>
-                                    <h3>
-                                        <a href="#">
-                                            استراتژی‌هایی برای تسلط بر بازی مورد علاقه‌تان
-                                        </a>
-                                    </h3>
-                                    <p>
-                                        در ماه‌های گذشته، پال‌ورد به سرعت پیروانی جمع‌آوری کرد و قبل از اینکه به یکی از
-                                        موفق‌ترین بازی‌های مستقل ویدئویی تمام دوران تبدیل شود.لورم ایپسوم متن ساختگی با
-                                        تولید سادگی نامفهوم از صنعت چاپ
-                                    </p>
-                                    <a href="#" class="gt-theme-btn">
-                                        بیشتر بخوانید
-                                    </a>
                                 </div>
-                            </div>
-                            <div class="gt-news-card-items-5 mb-0">
-                                <div class="gt-news-image">
-                                    <img src="{% static 'xsports/img/inner-page/news-details/details-3.jpg' %}" alt="img">
-                                </div>
-                                <div class="gt-news-content">
-                                    <ul class="gt-date-list">
-                                        <li>
-                                            <i class="fa-solid fa-calendar-days"></i>
-                                            یازده ازدیبهشت 1403
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-comments"></i>
-                                            19 نظر
-                                        </li>
-                                    </ul>
-                                    <h3>
-                                        <a href="#">
-                                            شخصیت‌های تأثیرگذار در تاریخ بازی‌ها
-                                        </a>
-                                    </h3>
-                                    <p>
-                                        در ماه‌های گذشته، پال‌ورد به سرعت پیروانی جمع‌آوری کرد و قبل از اینکه به یکی از
-                                        موفق‌ترین بازی‌های مستقل ویدئویی تمام دوران تبدیل شود.لورم ایپسوم متن ساختگی با
-                                        تولید سادگی نامفهوم از صنعت چاپ
-                                    </p>
-                                    <a href="#" class="gt-theme-btn">
-                                        بیشتر بخوانید
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="gt-page-nav-wrap pt-5 text-start">
-                                <ul class="justify-content-start">
-                                    <li><a class="gt-page-numbers" href="#"><i
-                                            class="fa-solid fa-chevron-right"></i></a></li>
-                                    <li><a class="gt-page-numbers" href="#">01</a></li>
-                                    <li><a class="gt-page-numbers active" href="#">02</a></li>
-                                    <li><a class="gt-page-numbers" href="#">03</a></li>
-                                    <li><a class="gt-page-numbers" href="#">04</a></li>
-                                    <li><a class="gt-page-numbers" href="#"><i class="fa-solid fa-chevron-left"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">
@@ -137,7 +84,8 @@
                                 <div class="gt-recent-post-area">
                                     <div class="gt-recent-items">
                                         <div class="gt-recent-thumb">
-                                            <img src="{% static 'xsports/img/inner-page/news-details/post-1.jpg' %}" alt="img">
+                                            <img src="{% static 'xsports/img/inner-page/news-details/post-1.jpg' %}"
+                                                 alt="img">
                                         </div>
                                         <div class="gt-recent-content">
                                             <h6>
@@ -154,7 +102,8 @@
                                     </div>
                                     <div class="gt-recent-items">
                                         <div class="gt-recent-thumb">
-                                            <img src="{% static 'xsports/img/inner-page/news-details/post-2.jpg' %}" alt="img">
+                                            <img src="{% static 'xsports/img/inner-page/news-details/post-2.jpg' %}"
+                                                 alt="img">
                                         </div>
                                         <div class="gt-recent-content">
                                             <h6>
@@ -172,7 +121,8 @@
                                     </div>
                                     <div class="gt-recent-items">
                                         <div class="gt-recent-thumb">
-                                            <img src="{% static 'xsports/img/inner-page/news-details/post-3.jpg' %}" alt="img">
+                                            <img src="{% static 'xsports/img/inner-page/news-details/post-3.jpg' %}"
+                                                 alt="img">
                                         </div>
                                         <div class="gt-recent-content">
                                             <h6>
