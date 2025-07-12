@@ -15,6 +15,7 @@ class RegisterForm(forms.Form):
         error_messages={
             'min_length': 'یک ایمیل معتر وارد کنید',
             'max_length': 'یک ایمیل معتر وارد کنید',
+            'required': 'این فیلد الزامی است!',
         }
     )
 
@@ -30,6 +31,7 @@ class RegisterForm(forms.Form):
         error_messages={
             'min_length': 'یک کلمه عبور معتبر وارد کنید',
             'max_length': 'یک کلمه عبور معتبر وارد کنید',
+            'required': 'این فیلد الزامی است!',
         }
     )
 
@@ -48,4 +50,4 @@ class RegisterForm(forms.Form):
         if password == confirm_password:
             return confirm_password
         else:
-            raise ValidationError('confirm_password' 'تکرار کلمه عبور اشتباه است')
+            raise ValidationError('تکرار کلمه عبور اشتباه است')

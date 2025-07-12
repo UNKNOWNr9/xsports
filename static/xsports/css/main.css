@@ -11778,3 +11778,30 @@ span {
 /* .mk {
   text-align: right
 } */
+
+select.form-clt {
+    appearance: none;               /* حذف ظاهر پیش‌فرض مرورگر */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-color: #2b2b2b;      /* پس‌زمینه تیره */
+    color: #ffffff;                 /* رنگ متن */
+    border: 1px solid #555;         /* حاشیه خاکستری */
+    padding: 10px 12px;             /* فضای داخلی */
+    border-radius: 5px;             /* گوشه‌های گرد */
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20viewBox%3D'0%200%204%205'%3E%3Cpath%20fill%3D'%23ffffff'%20d%3D'M2%200L0%202h4L2%200zM2%205l2-2H0l2%202z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+select.form-clt:focus {
+    outline: none;
+    border-color: #ff0000;          /* رنگ قرمز هنگام فوکوس */
+    background-color: #333333;
+}

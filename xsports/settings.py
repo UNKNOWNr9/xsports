@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'article_module.apps.ArticleModuleConfig',
     'home_module.apps.HomeModuleConfig',
     'account_module.apps.AccountModuleConfig',
+    'contact_module.apps.ContactModuleConfig',
 ]
 
 MIDDLEWARE = [
@@ -113,3 +114,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account_module.CostumeUser'
+

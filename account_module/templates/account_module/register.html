@@ -5,38 +5,49 @@
     <div class="limiter">
         <div class="container-login100" style="background-image: url('{% static 'account/images/pricing-bg.jpg' %}');">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-                <form class="login100-form validate-form" autocomplete="off" novalidate method="post"> {% csrf_token %}
-					<span class="login100-form-title p-b-49">
+                <form class="login100-form validate-form" autocomplete="off" novalidate method="post" action="{% url 'register' %}"> {% csrf_token %}
+                    <span class="login100-form-title p-b-49">
 						ثبت نام
 					</span>
-
                     <div class="wrap-input100">
-                        <span class="label-input100">{{ register.email.label_tag }}</span>
-                        {{ register.email }}
+                        <span class="label-input100">{{ register_form.email.label_tag }}</span>
+                        {{ register_form.email }}
                     </div>
-
+                    {% for error in register_form.email.errors %}
+                        <div class="text-danger mb-2">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
                     <div class="wrap-input100">
-                        <span class="label-input100">{{ register.password.label_tag }}</span>
-                        {{ register.password }}
+                        <span class="label-input100">{{ register_form.password.label_tag }}</span>
+                        {{ register_form.password }}
                         <span class="focus-input100" data-symbol="&#xf190;"></span>
                     </div>
-
+                    {% for error in register_form.password.errors %}
+                        <div class="text-danger mb-2">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
                     <div class="wrap-input100">
-                        <span class="label-input100">{{ register.confirm_password.label_tag }}</span>
-                        {{ register.confirm_password }}
+                        <span class="label-input100">{{ register_form.confirm_password.label_tag }}</span>
+                        {{ register_form.confirm_password }}
                         <span class="focus-input100" data-symbol="&#xf190;"></span>
                     </div>
-
+                    {% for error in register_form.confirm_password.errors %}
+                        <div class="text-danger mb-2">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
                     <div class="text-right p-t-20 p-b-31">
                         <a href="#" class="color-white">
-                            کلمه عبور را فراموش کردید؟
+                            کلمه عبور رو یادت رفته؟
                         </a>
                     </div>
 
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
+                            <button class="login100-form-btn" type="submit">
                                 ورود
                             </button>
                         </div>
