@@ -13,36 +13,47 @@
                         <div class="gt-comment-form-wrap">
                             <h4>ما اینجاییم تا کمک کنیم!</h4>
                             <p>آدرس ایمیل شما منتشر نخواهد شد. فیلدهای ضروری علامت‌گذاری شده‌اند. *</p>
-                            <form action="#" id="contact-form"
+                            <b>
+                                {% if messages %}
+                                    <div class="alert-container">
+                                        {% for message in messages %}
+                                            <div class="alert alert-success">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </b>
+                            <form action="{% url 'contact' %}" id="contact-form"
                                   method="POST" novalidate> {% csrf_token %}
                                 <div class="row g-4">
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <span>{{ contact_form.full_name.label_tag }}</span>
+                                            <span {% if contact_form.full_name.errors %}class="form-clt-errors shake"{% endif %}>{{ contact_form.full_name.label_tag }}</span>
                                             {{ contact_form.full_name }}
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <span>{{ contact_form.subject.label_tag }}</span>
+                                            <span {% if contact_form.subject.errors %}class="form-clt-errors shake"{% endif %}>{{ contact_form.subject.label_tag }}</span>
                                             {{ contact_form.subject }}
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <span>{{ contact_form.email.label_tag }}</span>
+                                            <span {% if contact_form.email.errors %}class="form-clt-errors shake"{% endif %}>{{ contact_form.email.label_tag }}</span>
                                             {{ contact_form.email }}
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <span>{{ contact_form.phone.label_tag }}</span>
+                                            <span {% if contact_form.phone.errors %}class="form-clt-errors shake"{% endif %}>{{ contact_form.phone.label_tag }}</span>
                                             {{ contact_form.phone }}
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-clt">
-                                            <span>{{ contact_form.message.label_tag }}</span>
+                                            <span {% if contact_form.message.errors %}class="form-clt-errors shake"{% endif %}>{{ contact_form.message.label_tag }}</span>
                                             {{ contact_form.message }}
                                         </div>
                                     </div>
