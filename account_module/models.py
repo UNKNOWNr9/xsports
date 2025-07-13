@@ -13,3 +13,5 @@ class CostumeUser(AbstractUser):
     class Meta:
         verbose_name = 'کاربر'
         verbose_name_plural = 'کاربران'
+
+
