@@ -1,27 +1,35 @@
 {% extends 'account_module/base.html' %}
 {% load static %}
-{% block title %}ثبت نام{% endblock %}
+{% block title %}ورود{% endblock %}
 {% block content %}
     <div class="limiter">
         <div class="container-login100" style="background-image: url('{% static 'account/images/pricing-bg.jpg' %}');">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-                <form class="login100-form validate-form" autocomplete="off" novalidate method="post"
-                      action="{% url 'register' %}"> {% csrf_token %}
+                <form class="login100-form validate-form" autocomplete="off" novalidate method="post" action="{% url 'login' %}"> {% csrf_token %}
                     <span class="login100-form-title p-b-49">
-						ثبت نام
+						ورود
 					</span>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-info">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if login_form.email.errors %}
+                        {% for error in login_form.email.errors %}
+                        	<div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <div class="wrap-input100">
-                        <span class="label-input100">{{ register_form.email.label_tag }}</span>
-                        {{ register_form.email }}
+                        <span class="label-input100">{{ login_form.email.label_tag }}</span>
+                        {{ login_form.email }}
                     </div>
                     <div class="wrap-input100">
-                        <span class="label-input100">{{ register_form.password.label_tag }}</span>
-                        {{ register_form.password }}
-                        <span class="focus-input100" data-symbol="&#xf190;"></span>
-                    </div>
-                    <div class="wrap-input100">
-                        <span class="label-input100">{{ register_form.confirm_password.label_tag }}</span>
-                        {{ register_form.confirm_password }}
+                        <span class="label-input100">{{ login_form.password.label_tag }}</span>
+                        {{ login_form.password }}
                         <span class="focus-input100" data-symbol="&#xf190;"></span>
                     </div>
                     <div class="text-right p-t-20 p-b-31">
@@ -29,7 +37,6 @@
                             کلمه عبور رو یادت رفته؟
                         </a>
                     </div>
-
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
@@ -43,7 +50,7 @@
 							حساب کاربری ندارید؟
 						</span>
 
-                        <a href="#" class="txt2">
+                        <a href="{% url 'register' %}" class="txt2">
                             ثبت نام کنید
                         </a>
                     </div>

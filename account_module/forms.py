@@ -12,11 +12,7 @@ class RegisterForm(forms.Form):
             'class': 'input100',
             'autocomplete': 'off',
         }),
-        error_messages={
-            'min_length': 'یک ایمیل معتر وارد کنید',
-            'max_length': 'یک ایمیل معتر وارد کنید',
-            'required': 'این فیلد الزامی است!',
-        }
+
     )
 
     password = forms.CharField(
@@ -51,3 +47,27 @@ class RegisterForm(forms.Form):
             return confirm_password
         else:
             raise ValidationError('تکرار کلمه عبور اشتباه است')
+
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(
+        label='ایمیل',
+        max_length=254,
+        min_length=6,
+        widget=forms.EmailInput(attrs={
+            'class': 'input100',
+            'placeholder': 'ایمیل خود را وارد کنید',
+            'autocomplete': 'new-password',
+        }),
+    )
+
+    password = forms.CharField(
+        label='کلمه عبور',
+        min_length=8,
+        max_length=128,
+        widget=forms.PasswordInput(attrs={
+            'class': 'input100',
+            'placeholder': 'کلمه عبور خود را وارد کنید',
+            'autocomplete': 'new-password',
+        })
+    )
