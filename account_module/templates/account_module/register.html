@@ -10,6 +10,13 @@
                     <span class="login100-form-title p-b-49">
 						ثبت نام
 					</span>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     {% if register_form.email.errors %}
                         {% for error in register_form.email.errors %}
                             <div class="alert alert-danger">

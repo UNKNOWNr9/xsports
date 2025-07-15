@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import CostumeUser
+from .models import CustomUser
 
 
-@admin.register(CostumeUser)
+@admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = ['email', 'about_user']

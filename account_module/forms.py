@@ -71,3 +71,46 @@ class LoginForm(forms.Form):
             'autocomplete': 'new-password',
         })
     )
+
+
+class ForgotPasswordForm(forms.Form):
+    email = forms.EmailField(
+        label='ایمیل',
+        min_length=6,
+        max_length=254,
+        widget=forms.EmailInput(attrs={
+            'class': 'input100',
+            'placeholder': 'ایمیل خود را وارد کنید',
+            'autocomplete': 'off',
+        })
+    )
+
+
+class ResetPasswordForm(forms.Form):
+    password = forms.CharField(
+        label='کلمه عبور جدید',
+        min_length=8,
+        max_length=128,
+        widget=forms.PasswordInput(attrs={
+            'class': 'input100',
+            'autocomplete': 'off',
+            'placeholder': 'کلمه عبور جدید خود را وارد کنید',
+        }),
+    )
+
+    confirm_password = forms.CharField(
+        label='تکرار کلمه عبور',
+        widget=forms.PasswordInput(attrs={
+            'class': 'input100',
+            'autocomplete': 'off',
+            'placeholder': 'کلمه عبور خود را تکرار کنید',
+        }),
+    )
+
+    def clean_confirm_password(self):
+        password = self.cleaned_data.get('password')
+        confirm_password = self.cleaned_data.get('confirm_password')
+        if password == confirm_password:
+            return password
+        else:
+            raise ValidationError('تکرار کلمه عبور اشتباه است')

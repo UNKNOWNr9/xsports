@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-class CostumeUser(AbstractUser):
+class CustomUser(AbstractUser):
     avatar = models.ImageField(upload_to='user_avatar', null=True, blank=True, verbose_name='تصویر پروفایل')
     email_active_code = models.CharField(max_length=100, verbose_name='کد فعالسازی')
     about_user = models.TextField(max_length=1000, verbose_name='درباره کاربر', default='درباره خودت یه چیزی بنویس که بقیه ببینن!')

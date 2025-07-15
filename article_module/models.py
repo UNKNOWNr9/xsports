@@ -1,5 +1,5 @@
 from django.db import models
-from account_module.models import CostumeUser
+from account_module.models import CustomUser
 
 
 class ArticleCategory(models.Model):
@@ -22,7 +22,7 @@ class Article(models.Model):
     create_date = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
     slug = models.SlugField(unique=True, verbose_name='آدرس')
     is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
-    author = models.ForeignKey(CostumeUser, on_delete=models.CASCADE, verbose_name='نویسنده')
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='نویسنده')
     selected_category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE, verbose_name='دسته بندی ها')
 
     def __str__(self):
