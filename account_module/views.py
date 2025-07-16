@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.shortcuts import render, redirect, reverse
 from django.utils.crypto import get_random_string
-from django.utils.translation.trans_real import reset_cache
 from django.views.generic import View
 
 from .forms import RegisterForm, LoginForm, ForgotPasswordForm, ResetPasswordForm
@@ -105,6 +104,7 @@ class ForgotPasswordView(View):
             user_exist: CustomUser = CustomUser.objects.filter(email__iexact=user_email).first()
             if not user_exist:
                 messages.success(request, message='در صورتی که حسابی با این ایمیل وجود داشته باشد، لینک بازیابی رمز عبور برایتان ارسال می‌شود.')
+                return redirect(reverse('login'))
             else:
                 # TODO: send forget password email
                 pass
@@ -124,5 +124,25 @@ class ResetPasswordView(View):
             return redirect(reverse('forgot_password'))
         context = {
             'reset_password_form': ResetPasswordForm()
+        }
+        return render(request, 'account_module/reset_password.html', context)
+
+    def post(self, request, email_active_code):
+        reset_password_form = ResetPasswordForm(request.POST)
+        user = CustomUser.objects.filter(email_active_code__iexact=email_active_code).first()
+        if reset_password_form.is_valid():
+            user: CustomUser = CustomUser.objects.filter(email_active_code__iexact=email_active_code).first()
+            if user is None:
+                messages.error(request, 'لینک بازیابی رمز عبور نامعتبر یا منقضی شده است. لطفاً مجدداً درخواست بازیابی رمز عبور ارسال کنید.')
+                return redirect(reverse('forgot_password'))
+            user_password = reset_password_form.cleaned_data.get('password')
+            user.set_password(user_password)
+            user.email_active_code = get_random_string(72)
+            user.is_active = True
+            user.save()
+            return redirect(reverse('login'))
+        context = {
+            'reset_password_form': reset_password_form,
+            'user': user,
         }
         return render(request, 'account_module/reset_password.html', context)
