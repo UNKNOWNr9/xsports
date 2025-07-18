@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>فعالسازی حساب کاربری</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+    .email-wrapper {
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: #1a1a1a;
+      border: 2px solid #c13535;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .email-header {
+      background: linear-gradient(45deg, #0d0d0d, #1f1f1f);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #c13535;
+    }
+    .email-header h1 {
+      color: #c13535;
+      font-size: 24px;
+      margin: 0;
+    }
+    .email-body {
+      padding: 30px;
+    }
+    .email-body p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: #ddd;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #c13535;
+      color: white !important;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #a12222;
+    }
+    .email-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #777;
+      background-color: #121212;
+      border-top: 1px solid #2e2e2e;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-header">
+      <h1>فعالسازی حساب</h1>
+    </div>
+    <div class="email-body">
+      <p>،سلام عزیز</p>
+      <p>:برای فعال‌سازی حساب کاربری خود لطفاً روی دکمه زیر کلیک کنید</p>
+      <a href="http://localhost:8000{% url 'activate' email_active_code=user.email_active_code %}" class="btn">فعالسازی حساب</a>
+      <p>.اگر این درخواست از طرف شما نبوده، لطفاً این ایمیل را نادیده بگیرید</p>
+      <p>،با احترام<br>تیم Xports</p>
+    </div>
+    <div class="email-footer">
+      .این ایمیل به صورت خودکار ارسال شده است. لطفاً به آن پاسخ ندهید
+    </div>
+  </div>
+</body>
+</html>
