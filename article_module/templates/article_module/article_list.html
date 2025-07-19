@@ -1,6 +1,7 @@
 {% extends 'shared/_layout.html' %}
 {% load static %}
 {% load thumbnail %}
+{% load jformat %}
 {% block title %}وبلاگ{% endblock %}
 {% block header_bg %}{% static 'xsports/img/home-2/hero/hero-bg.png' %}{% endblock %}
 {% block hero_bg %}{% static 'xsports/img/home-2/hero/hero-01.png' %}{% endblock %}
@@ -22,6 +23,10 @@
                                     </div>
                                     <div class="gt-news-content">
                                         <ul class="gt-date-list">
+                                            <li>
+                                                <i class="fa fa-user"></i>
+                                                {{ obj.author.get_full_name }}
+                                            </li>
                                             <li>
                                                 <i class="fa-solid fa-calendar-days"></i>
                                                 {{ obj.create_date }}

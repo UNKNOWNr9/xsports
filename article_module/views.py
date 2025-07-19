@@ -4,8 +4,9 @@ from .models import Article
 
 class ArticleListView(ListView):
     template_name = 'article_module/article_list.html'
-    queryset = Article.objects.filter(is_active=True)
+    queryset = Article.objects.filter(is_active=True).order_by('-create_date')
     paginate_by = 1
+
 
 
 class ArticleDetailView(DetailView):
