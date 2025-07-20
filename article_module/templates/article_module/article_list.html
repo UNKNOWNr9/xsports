@@ -1,7 +1,7 @@
 {% extends 'shared/_layout.html' %}
 {% load static %}
 {% load thumbnail %}
-{% load jformat %}
+{% load jalali_tags %}
 {% block title %}وبلاگ{% endblock %}
 {% block header_bg %}{% static 'xsports/img/home-2/hero/hero-bg.png' %}{% endblock %}
 {% block hero_bg %}{% static 'xsports/img/home-2/hero/hero-01.png' %}{% endblock %}
@@ -29,7 +29,11 @@
                                             </li>
                                             <li>
                                                 <i class="fa-solid fa-calendar-days"></i>
-                                                {{ obj.create_date }}
+                                                {{ obj.create_date.date | to_jalali }}
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-clock"></i>
+                                                {{ obj.create_date | time:"H:i"}}
                                             </li>
                                             <li>
                                                 <i class="fa-solid fa-comments"></i>
@@ -76,10 +80,6 @@
                                 </div>
                                 <ul>
                                     <li><a href="#">بازی لایو</a><span>(01)</span></li>
-                                    <li><a href="#">فانتزی</a><span>(02)</span></li>
-                                    <li><a href="#">گیمینگ</a><span>(03)</span></li>
-                                    <li><a href="#">ایکس باکس</a><span>(04)</span></li>
-                                    <li><a href="#">شلیک</a><span>(05)</span></li>
                                 </ul>
                             </div>
                             <div class="gt-single-sideber-widget">

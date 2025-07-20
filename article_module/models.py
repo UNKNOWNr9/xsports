@@ -23,7 +23,7 @@ class Article(models.Model):
     slug = models.SlugField(unique=True, verbose_name='آدرس')
     is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='نویسنده')
-    selected_category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE, verbose_name='دسته بندی ها')
+    selected_category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE, verbose_name='دسته بندی ها', related_name='article_category')
 
     def __str__(self):
         return self.title

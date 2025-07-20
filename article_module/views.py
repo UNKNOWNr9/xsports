@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView
-from .models import Article
+from .models import Article, ArticleCategory
+from django.shortcuts import render
 
 
 class ArticleListView(ListView):
@@ -8,7 +9,8 @@ class ArticleListView(ListView):
     paginate_by = 1
 
 
-
 class ArticleDetailView(DetailView):
     template_name = 'article_module/article_detail.html'
     queryset = Article.objects.filter(is_active=True)
+
+

@@ -1,7 +1,8 @@
 Python Start : ?
-django : 98
+Django Start : 100
 
 TODO :
 make url copy from title + persian lang
 جلوگیری از اسپم کردم فرم ها مثل لاگین
  email_service failed log
+ make a fullName input if fullName exist else email
