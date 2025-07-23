@@ -14,3 +14,11 @@ class ArticleDetailView(DetailView):
     queryset = Article.objects.filter(is_active=True)
 
 
+def article_sidebar(request):
+    latest_articles = Article.objects.filter(is_active=True).order_by('-create_date')
+    categories = ArticleCategory.objects.filter(is_active=True)
+    context = {
+        'latest_artciles': latest_articles,
+        'categories': categories,
+    }
+    return render(request, 'components/sidebar.html', context)

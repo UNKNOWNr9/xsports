@@ -1,0 +1,83 @@
+{% load static %}
+{% load jalali_tags %}
+{% load thumbnail %}
+<div class="col-lg-4 col-12">
+    <div class="gt-main-sideber sticky-style">
+        <div class="gt-single-sideber-widget">
+            <div class="gt-widget-title">
+                <h3>دسته بندی ها</h3>
+            </div>
+            <ul>
+                {% for cat in categories %}
+                	<li><a href="#">{{ cat.title }}</a><span>(01)</span></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="gt-single-sideber-widget">
+            <div class="gt-widget-title">
+                <h3>پست اخیر</h3>
+            </div>
+            <div class="gt-recent-post-area">
+                {% for article in latest_artciles %}
+                    <div class="gt-recent-items">
+                        <div class="gt-recent-thumb">
+                            {% thumbnail article.image "80x80" crop="center" as im %}
+                                <img src="{{ im.url }}" alt="img">
+                            {% endthumbnail %}
+                        </div>
+                        <div class="gt-recent-content">
+                            <h6>
+                                <a href="{% url 'article_detail' slug=article.slug %}">
+                                    {{ article.title }}
+                                </a>
+                            </h6>
+                            <ul>
+                                <li>
+                                    {{ article.create_date.date | to_jalali }}
+                                    ساعت : {{ article.create_date.time }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="gt-contact-bg bg-cover"
+             style="background-image: url({% static 'xsports/img/inner-page/match-details/bg.jpg' %});">
+            <div class="gt-contact-content">
+                <h3>نیاز به کمک دارید؟</h3>
+                <p>نیاز به کمک دارید؟ با ما تماس بگیرید – پشتیبانی کامل </p>
+                <div class="gt-contact-item">
+                    <div class="gt-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <ul class="gt-list">
+                        <li><span>تماس با ما:</span></li>
+                        <li><a href="tel:+0094382229540">09120000000</a></li>
+                    </ul>
+                </div>
+                <div class="gt-contact-item">
+                    <div class="gt-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <ul class="gt-list">
+                        <li><span>ایمیل ما</span></li>
+                        <li><a href="#">
+                            infor@xridergamil.com
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="gt-contact-item mb-0">
+                    <div class="gt-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <ul class="gt-list">
+                        <li><span>لوکیشن:</span></li>
+                        <li>ایران استان البرز</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
