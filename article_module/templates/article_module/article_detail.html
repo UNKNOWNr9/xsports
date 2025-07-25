@@ -1,6 +1,7 @@
 {% extends 'shared/_layout.html' %}
 {% load thumbnail %}
 {% load static %}
+{% load render_partial %}
 {% block title %}وبلاگ | {{ object.title }}{% endblock %}
 {% block content %}
     <!-- GT News-details Section Start -->
@@ -43,7 +44,8 @@
                                 </div>
                                 <div class="gt-blog-single-comment d-flex gap-4 pt-4 pb-4">
                                     <div class="image">
-                                        <img src="{% static 'xsports/img/inner-page/news-details/comment-1.jpg' %}" alt="img">
+                                        <img src="{% static 'xsports/img/inner-page/news-details/comment-1.jpg' %}"
+                                             alt="img">
                                     </div>
                                     <div class="gt-content">
                                         <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
@@ -65,7 +67,8 @@
                                 </div>
                                 <div class="gt-blog-single-comment d-flex gap-4 pt-4 pb-4">
                                     <div class="image">
-                                        <img src="{% static 'xsports/img/inner-page/news-details/comment-2.jpg' %}" alt="img">
+                                        <img src="{% static 'xsports/img/inner-page/news-details/comment-2.jpg' %}"
+                                             alt="img">
                                     </div>
                                     <div class="gt-content">
                                         <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
@@ -116,129 +119,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="gt-main-sideber sticky-style">
-                            <div class="gt-single-sideber-widget">
-                                <div class="gt-widget-title">
-                                    <h3>اینجا جستجو کنید</h3>
-                                </div>
-                                <div class="gt-search-widget">
-                                    <form action="#">
-                                        <input type="text" placeholder="اینجا جستجو کنید">
-                                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="gt-single-sideber-widget">
-                                <div class="gt-widget-title">
-                                    <h3>دسته بندی ها</h3>
-                                </div>
-                                <ul>
-                                    <li><a href="#">بازی لایو</a><span>(01)</span></li>
-                                    <li><a href="#">فانتزی</a><span>(02)</span></li>
-                                    <li><a href="#">گیمینگ</a><span>(03)</span></li>
-                                    <li><a href="#">ایکس باکس</a><span>(04)</span></li>
-                                    <li><a href="#">شلیک</a><span>(05)</span></li>
-                                </ul>
-                            </div>
-                            <div class="gt-single-sideber-widget">
-                                <div class="gt-widget-title">
-                                    <h3>پست اخیر</h3>
-                                </div>
-                                <div class="gt-recent-post-area">
-                                    <div class="gt-recent-items">
-                                        <div class="gt-recent-thumb">
-                                            <img src="{% static 'xsports/img/inner-page/news-details/post-1.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="gt-recent-content">
-                                            <h6>
-                                                <a href="#">
-                                                    یک روز در زندگی یک رویداد ورزش‌های الکترونیکی
-                                                </a>
-                                            </h6>
-                                            <ul>
-                                                <li>
-                                                    شش اسفند 1404
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="gt-recent-items">
-                                        <div class="gt-recent-thumb">
-                                            <img src="{% static 'xsports/img/inner-page/news-details/post-2.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="gt-recent-content">
-                                            <h6>
-                                                <a href="#">
-                                                    شخصیت های تأثیرگذار در تاریخ<br>
-                                                    لورم اپسیوم
-                                                </a>
-                                            </h6>
-                                            <ul>
-                                                <li>
-                                                    شش اسفند 1404
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="gt-recent-items">
-                                        <div class="gt-recent-thumb">
-                                            <img src="{% static 'xsports/img/inner-page/news-details/post-3.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="gt-recent-content">
-                                            <h6>
-                                                <a href="#">
-                                                    پشت صحنه‌های مورد علاقه شما<br>
-                                                    لورم اپسیوم
-                                                </a>
-                                            </h6>
-                                            <ul>
-                                                <li>
-                                                    شش اسفند 1404
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="gt-contact-bg bg-cover"
-                                 style="background-image: url({% static 'xsports/img/inner-page/match-details/bg.jpg' %});">
-                                <div class="gt-contact-content">
-                                    <h3>نیاز به کمک دارید؟</h3>
-                                    <p>نیاز به کمک دارید؟ با ما تماس بگیرید – پشتیبانی کامل </p>
-                                    <div class="gt-contact-item">
-                                        <div class="gt-icon">
-                                            <i class="fa-solid fa-phone"></i>
-                                        </div>
-                                        <ul class="gt-list">
-                                            <li><span>تماس با ما:</span></li>
-                                            <li><a href="tel:+0094382229540">09120000000</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="gt-contact-item">
-                                        <div class="gt-icon">
-                                            <i class="fa-regular fa-envelope"></i>
-                                        </div>
-                                        <ul class="gt-list">
-                                            <li><span>ایمیل ما</span></li>
-                                            <li><a href="#">
-                                                infor@xridergamil.com
-                                            </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="gt-contact-item mb-0">
-                                        <div class="gt-icon">
-                                            <i class="fa-solid fa-location-dot"></i>
-                                        </div>
-                                        <ul class="gt-list">
-                                            <li><span>لوکیشن:</span></li>
-                                            <li>ایران استان البرز</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% render_partial 'article_module.views.article_sidebar' %}
                 </div>
             </div>
         </div>
