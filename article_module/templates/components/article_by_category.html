@@ -3,18 +3,21 @@
 {% load thumbnail %}
 {% load render_partial %}
 {% load jalali_tags %}
-{% block title %}وبلاگ{% endblock %}
+{% block title %}{{ categories.title }}{% endblock %}
 {% block header_bg %}{% static 'xsports/img/home-2/hero/hero-bg.png' %}{% endblock %}
 {% block hero_bg %}{% static 'xsports/img/home-2/hero/hero-01.png' %}{% endblock %}
 {% block content %}
     <!-- GT News-standard Section Start -->
     <section class="news-standard-section section-padding rtl">
         <div class="container">
+            <div class="category-header">
+                <h1>دسته بندی : <span>شبکه</span></h1>
+            </div>
             <div class="gt-news-standard-wrapper">
                 <div class="row g-4">
                     <div class="col-12 col-lg-8">
                         <div class="gt-news-standard-items">
-                            {% for obj in object_list %}
+                            {% for obj in articles %}
                                 <div class="gt-news-card-items-5 mb-10">
                                     <div class="gt-news-image">
                                         {% thumbnail obj.image "856x402" crop="center" as im %}
@@ -26,7 +29,7 @@
                                         <ul class="gt-date-list">
                                             <li>
                                                 <i class="fa fa-user"></i>
-                                                <a href="{% url 'article_by_author' obj.author.username %}">{{ obj.author.get_full_name }}</a>
+                                                {{ obj.author.get_full_name }}
                                             </li>
                                             <li>
                                                 <i class="fa-solid fa-calendar-days"></i>
@@ -78,7 +81,6 @@
             </div>
         </div>
     </section>
-
     <!-- GT Newsletter Section Start -->
     <section class="gt-newsletter-section fix mb-4">
         <div class="container">
@@ -102,5 +104,4 @@
             </div>
         </div>
     </section>
-
 {% endblock %}

@@ -1,6 +1,8 @@
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
+
+from account_module.models import CustomUser
 from .models import Article, ArticleCategory
-from django.shortcuts import render
 
 
 class ArticleListView(ListView):
@@ -22,3 +24,23 @@ def article_sidebar(request):
         'categories': categories,
     }
     return render(request, 'components/sidebar.html', context)
+
+
+def article_by_category(request, slug):
+    category = get_object_or_404(ArticleCategory, slug=slug)
+    article = Article.objects.filter(selected_category=category, is_active=True)
+    context = {
+        'categories': category,
+        'articles': article,
+    }
+    return render(request, 'components/article_by_category.html', context)
+
+
+def article_by_author(request, username):
+    author = get_object_or_404(CustomUser, username=username)
+    article = Article.objects.filter(author=author, is_active=True)
+    context = {
+        'author': author,
+        'articles': article
+    }
+    return render(request, 'components/article_by_author.html', context)
