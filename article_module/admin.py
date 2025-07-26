@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Article, ArticleCategory
+from .models import Article, ArticleCategory, ArticleComments
 
 
 @admin.register(Article)
@@ -12,3 +12,9 @@ class ArticleAdmin(admin.ModelAdmin):
 @admin.register(ArticleCategory)
 class ArticleCategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'is_active']
+    list_editable = ['is_active', ]
+
+
+@admin.register(ArticleComments)
+class ArticleCommentsAdmin(admin.ModelAdmin):
+    list_display = ['user', 'article']

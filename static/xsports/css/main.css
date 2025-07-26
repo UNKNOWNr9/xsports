@@ -9157,8 +9157,8 @@ span {
 
 .gt-news-standard-wrapper .gt-news-standard-items .gt-news-card-items-5 .gt-news-image {
     overflow: hidden;
-    /* clip-path: polygon(9% 0, 100% 0, 100% 100%, 75% 100%, 0 100%, 0 15%); */
-    clip-path: polygon(91% 0, 0% 0, 0% 100%, 25% 100%, 100% 100%, 100% 15%);
+     clip-path: polygon(9% 0, 100% 0, 100% 100%, 75% 100%, 0 100%, 0 15%);
+    /*clip-path: polygon(91% 0, 0% 0, 0% 100%, 25% 100%, 100% 100%, 100% 15%);*/
 }
 
 .gt-news-standard-wrapper .gt-news-standard-items .gt-news-card-items-5 .gt-news-image img {
@@ -13692,7 +13692,7 @@ select.form-clt:focus {
 }
 
 .category-header {
-    text-align: center;
+    text-align: right;
     margin-top: 40px;
     margin-bottom: 30px;
     direction: rtl;
@@ -13708,7 +13708,6 @@ select.form-clt:focus {
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
-    margin-left: 30%;
 }
 
 .category-header h1 span {

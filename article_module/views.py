@@ -27,7 +27,7 @@ def article_sidebar(request):
 
 
 def article_by_category(request, slug):
-    category = get_object_or_404(ArticleCategory, slug=slug)
+    category = get_object_or_404(ArticleCategory, slug=slug, is_active=True)
     article = Article.objects.filter(selected_category=category, is_active=True)
     context = {
         'categories': category,

@@ -11,12 +11,15 @@
     <section class="news-standard-section section-padding rtl">
         <div class="container">
             <div class="category-header">
-                <h1>دسته بندی : <span>شبکه</span></h1>
+                <h1>دسته بندی : <span>{{ categories.title }}</span></h1>
             </div>
             <div class="gt-news-standard-wrapper">
                 <div class="row g-4">
                     <div class="col-12 col-lg-8">
                         <div class="gt-news-standard-items">
+                            {% if not articles %}
+                                <p>متاسفانه هیچ مقاله ای با دسته بندی انتخاب شده یافت نشد!</p>
+                            {% endif %}
                             {% for obj in articles %}
                                 <div class="gt-news-card-items-5 mb-10">
                                     <div class="gt-news-image">
@@ -29,7 +32,7 @@
                                         <ul class="gt-date-list">
                                             <li>
                                                 <i class="fa fa-user"></i>
-                                                {{ obj.author.get_full_name }}
+                                                <a href="{% url 'article_by_author' obj.author.username %}">{{ obj.author.get_full_name }}</a>
                                             </li>
                                             <li>
                                                 <i class="fa-solid fa-calendar-days"></i>
@@ -63,13 +66,18 @@
                                 <div class="gt-page-nav-wrap pt-5 text-start">
                                     <ul class="justify-content-start">
                                         {% if page_obj.has_previous %}
-                                            <li><a class="gt-page-numbers" href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-chevron-right"></i></a></li>
+                                            <li><a class="gt-page-numbers"
+                                                   href="?page={{ page_obj.previous_page_number }}"><i
+                                                    class="fa-solid fa-chevron-right"></i></a></li>
                                         {% endif %}
                                         {% for PageNumber in paginator.page_range %}
-                                            <li><a class="gt-page-numbers {% if page_obj.number == PageNumber %}active{% endif %}" href="?page={{ PageNumber }}">{{ PageNumber }}</a></li>
+                                            <li>
+                                                <a class="gt-page-numbers {% if page_obj.number == PageNumber %}active{% endif %}"
+                                                   href="?page={{ PageNumber }}">{{ PageNumber }}</a></li>
                                         {% endfor %}
                                         {% if page_obj.has_next %}
-                                            <li><a class="gt-page-numbers" href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-chevron-left"></i></a></li>
+                                            <li><a class="gt-page-numbers" href="?page={{ page_obj.next_page_number }}"><i
+                                                    class="fa-solid fa-chevron-left"></i></a></li>
                                         {% endif %}
                                     </ul>
                                 </div>
