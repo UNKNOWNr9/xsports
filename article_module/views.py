@@ -11,7 +11,7 @@ from .models import Article, ArticleCategory, ArticleComments
 class ArticleListView(ListView):
     template_name = 'article_module/article_list.html'
     queryset = Article.objects.filter(is_active=True).order_by('-create_date')
-    paginate_by = 1
+    paginate_by = 3
 
 
 class ArticleDetailView(DetailView):
