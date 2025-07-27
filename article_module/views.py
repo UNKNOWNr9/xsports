@@ -1,8 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
+from django.db.models import Count
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
 
 from account_module.models import CustomUser
-from .models import Article, ArticleCategory
+from .forms import ArticleCommentsForm
+from .models import Article, ArticleCategory, ArticleComments
 
 
 class ArticleListView(ListView):
@@ -15,10 +18,35 @@ class ArticleDetailView(DetailView):
     template_name = 'article_module/article_detail.html'
     queryset = Article.objects.filter(is_active=True)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        article = self.get_object()
+        context['comments'] = ArticleComments.objects.filter(article=article, is_active=True)
+        context['comment_form'] = ArticleCommentsForm()
+        return context
+    # comments view
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(request, 'برای ارسال نظر باید اول وارد شوید')
+            return redirect(request.path)
+        self.object = self.get_object()
+        comment_form = ArticleCommentsForm(request.POST)
+
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.article = self.object
+            comment.user = request.user
+            comment_form.save()
+            messages.success(request, 'کامنت شما ثبت شد، طی 48 ساعت پس از تایید نمایش داده میشود.')
+            return redirect(self.request.path_info)
+        context = self.get_context_data()
+        context['comment_form'] = comment_form
+        return redirect(self.request.path_info)
+
 
 def article_sidebar(request):
     latest_articles = Article.objects.filter(is_active=True).order_by('-create_date')
-    categories = ArticleCategory.objects.filter(is_active=True)
+    categories = ArticleCategory.objects.filter(is_active=True).annotate(count=Count('article_category'))
     context = {
         'latest_artciles': latest_articles,
         'categories': categories,

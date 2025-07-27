@@ -17,4 +17,4 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(ArticleComments)
 class ArticleCommentsAdmin(admin.ModelAdmin):
-    list_display = ['user', 'article']
+    list_display = ['user', 'article', 'created_at']

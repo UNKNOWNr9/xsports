@@ -1,6 +1,7 @@
 {% extends 'shared/_layout.html' %}
 {% load thumbnail %}
 {% load static %}
+{% load jalali_tags %}
 {% load render_partial %}
 {% block title %}وبلاگ | {{ object.title }}{% endblock %}
 {% block content %}
@@ -40,61 +41,46 @@
                             </div>
                             <div class="gt-comments-area">
                                 <div class="gt-comments-heading">
-                                    <h3>2 نظر</h3>
+                                    <h3>{{ comments.count }} نظر</h3>
                                 </div>
-                                <div class="gt-blog-single-comment d-flex gap-4 pt-4 pb-4">
-                                    <div class="image">
-                                        <img src="{% static 'xsports/img/inner-page/news-details/comment-1.jpg' %}"
-                                             alt="img">
-                                    </div>
-                                    <div class="gt-content">
-                                        <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                                            <div class="con">
-                                                <h5>
-                                                    <a href="#">
-                                                        آدام جان
-                                                    </a>
-                                                </h5>
-                                                <span>پنج اردیبهشت 1404 ساعت 2:33</span>
-                                            </div>
-                                            <a href="#" class="reply">پاسخ دادن</a>
+                                {% for comment in comments %}
+                                    <div class="gt-blog-single-comment d-flex gap-4 pt-4 pb-4">
+                                        <div class="image">
+                                            {% thumbnail comment.user.avatar "96x96" crop="center" as im %}
+                                                <img src="{{ im.url }}" alt="img">
+                                            {% endthumbnail %}
                                         </div>
-                                        <p class="mt-2 mb-4">
-                                            سلامت و رفاه شما اولویت‌های اصلی ما هستند. ما وقت می‌گذاریم تا به نگرانی‌های
-                                            شما گوش دهیم و به سوالات شما پاسخ دهیم.لورم ایپسوم متن ساختگی
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="gt-blog-single-comment d-flex gap-4 pt-4 pb-4">
-                                    <div class="image">
-                                        <img src="{% static 'xsports/img/inner-page/news-details/comment-2.jpg' %}"
-                                             alt="img">
-                                    </div>
-                                    <div class="gt-content">
-                                        <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                                            <div class="con">
-                                                <h5><a href="#">کریستین واتسونز</a></h5>
-                                                <span>پنج اردیبهشت 1404 ساعت 2:33</span>
+                                        <div class="gt-content">
+                                            <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+                                                <div class="con">
+                                                    <h5>
+                                                        {{ comment.user.get_full_name }}
+                                                    </h5>
+                                                    <span>{{ comment.created_at.date | to_jalali }} ساعت {{ comment.created_at.time }}</span>
+                                                </div>
+                                                <a href="#" class="reply">پاسخ دادن</a>
                                             </div>
-                                            <a href="#" class="reply">پاسخ دادن</a>
+                                            <p class="mt-2 mb-4">
+                                                {{ comment.message | linebreaks }}
+                                            </p>
                                         </div>
-                                        <p class="mt-2 mb-4">
-                                            سلامت و رفاه شما اولویت‌های اصلی ما هستند. ما وقت می‌گذاریم تا به نگرانی‌های
-                                            شما گوش دهیم و به سوالات شما پاسخ دهیم.لورم ایپسوم متن ساختگی
-                                        </p>
                                     </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <div class="gt-comment-form-wrap mt-5">
                                 <h4>نظر خود را بگذارید</h4>
                                 <p>آدرس ایمیل شما منتشر نخواهد شد. فیلدهای الزامی علامت‌گذاری شده‌اند. *</p>
-                                <form action="#" id="contact-form" method="POST">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <p class="article-comments-messages">{{ message }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                                <form id="contact-form" method="POST" novalidate> {% csrf_token %}
                                     <div class="row g-4">
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <span>نوشتن پیام</span>
-                                                <textarea name="message" id="message"
-                                                          placeholder="پیام خود را وارد کنید"></textarea>
+                                                <span>{{ comment_form.message.label_tag }}</span>
+                                                {{ comment_form.message }}
                                             </div>
                                         </div>
                                         <div class="col-lg-6">

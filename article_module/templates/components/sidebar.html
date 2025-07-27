@@ -9,7 +9,7 @@
             </div>
             <ul>
                 {% for cat in categories %}
-                	<li><a href="{% url 'article_by_category' slug=cat.slug %}">{{ cat.title }}</a><span>(01)</span></li>
+                	<li><a href="{% url 'article_by_category' slug=cat.slug %}">{{ cat.title }}</a><span>({{ cat.count }})</span></li>
                 {% endfor %}
 
             </ul>

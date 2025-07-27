@@ -13791,3 +13791,21 @@ select.form-clt:focus {
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
+
+
+.article-comments-messages {
+    background-color: #e6f9f0;        /* سبز ملایم */
+    border: 1px solid #2ecc71;        /* سبز پررنگ */
+    color: #27ae60;                   /* متن سبز زیبا */
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-family: inherit;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.gt-blog-single-comment img {
+    border-radius: 100%;
+}

@@ -1,14 +1,20 @@
 from django import forms
+
 from .models import ArticleComments
 
 
 class ArticleCommentsForm(forms.ModelForm):
     class Meta:
         model = ArticleComments
-        fields = ['name', 'body']
+        fields = ['message']
         widgets = {
-            'body': forms.Textarea(attrs={'class': 'form-clt', 'rows': 4}),
+            'message': forms.Textarea(attrs={
+                'class': 'form-clt',
+                'rows': 4,
+                'placeholder': 'پیام خود را وارد کنید'
+            }),
         }
+
         labels = {
-            'body': 'متن کامنت',
+            'message': 'متن کامنت',
         }
