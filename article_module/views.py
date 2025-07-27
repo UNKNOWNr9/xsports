@@ -24,10 +24,11 @@ class ArticleDetailView(DetailView):
         context['comments'] = ArticleComments.objects.filter(article=article, is_active=True)
         context['comment_form'] = ArticleCommentsForm()
         return context
+
     # comments view
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            messages.error(request, 'برای ارسال نظر باید اول وارد شوید')
+            messages.error(request, 'برای ارسال نظر باید اول وارد حساب کاربری شوید.')
             return redirect(request.path)
         self.object = self.get_object()
         comment_form = ArticleCommentsForm(request.POST)

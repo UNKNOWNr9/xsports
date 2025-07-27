@@ -13794,9 +13794,9 @@ select.form-clt:focus {
 
 
 .article-comments-messages {
-    background-color: #e6f9f0;        /* سبز ملایم */
-    border: 1px solid #2ecc71;        /* سبز پررنگ */
-    color: #27ae60;                   /* متن سبز زیبا */
+    background-color: #e6f9f0;
+    border: 1px solid #2ecc71;
+    color: #27ae60;
     padding: 12px 16px;
     border-radius: 8px;
     margin-top: 20px;

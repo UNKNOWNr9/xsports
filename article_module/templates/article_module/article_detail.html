@@ -46,9 +46,15 @@
                                 {% for comment in comments %}
                                     <div class="gt-blog-single-comment d-flex gap-4 pt-4 pb-4">
                                         <div class="image">
-                                            {% thumbnail comment.user.avatar "96x96" crop="center" as im %}
-                                                <img src="{{ im.url }}" alt="img">
-                                            {% endthumbnail %}
+                                            {% if comment.user.avatar %}
+                                                {% thumbnail comment.user.avatar "96x96" crop="center" as im %}
+                                                    <img src="{{ im.url }}" alt="img">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                {% thumbnail comment.user.avatar "96x96" crop="center" as im %}
+                                                    <img src="{% static 'xsports/img/user.png' %}" alt="img">
+                                                {% endthumbnail %}
+                                            {% endif %}
                                         </div>
                                         <div class="gt-content">
                                             <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
