@@ -1,9 +1,1 @@
-class Person:
-    name = 'arshia'
-    age = 22
-    city = 'tehran'
-
-class User(Person):
-    email = 'test@t.com'
-    password = '123'
-
+print(len('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum eaque, earum eligendi est hic nam non officia quibusdam quo quos reiciendis saepe veniam! Accusantium architecto atque autem, commodi consequuntur deserunt, eum expedita laboriosam laudantium molestias mollitia nihil numquam odit porro quasi quis sit, vitae voluptates? Aliquam aliquid atque autem beatae blanditiis deleniti distinctio, eligendi eos eum eveniet exercitationem fuga fugiat hic illo ipsum iste iure maiores minus natus nisi nulla obcaecati optio perspiciatis, quaerat, quam quibusdam saepe tempora unde velit voluptatibus! Aut corporis culpa, deserunt eos illum impedit iure nisi numquam, perspiciatis quae repellendus tenetur ut velit. Porro, sapiente.'))

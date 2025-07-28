@@ -11,12 +11,6 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="#" class="brand-link">
-            <img src="{% static 'adminLTE/dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">داشبورد مدیریت</span>
-        </a>
-        <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -50,12 +44,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{% url 'profile' %}" class="nav-link active">
+                                <a href="{% url 'profile' %}" class="nav-link {% if request.path == '/dashboard/profile/' %}active{% endif %}">
                                     <p>پروفایل من</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{% url 'edit_profile' %}" class="nav-link {% if request.path ==  '/dashboard/edit_profile/' %}active{% endif %}">
                                     <p>ویرایش اطلاعات</p>
                                 </a>
                             </li>
@@ -65,6 +59,12 @@
             </nav>
             <!-- /.sidebar-menu -->
         </div>
+        <!-- Sidebar -->
+        <a href="#" class="brand-link">
+            <img src="{% static 'adminLTE/dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">داشبورد مدیریت</span>
+        </a>
         <!-- /.sidebar -->
     </aside>
 {% endblock %}
@@ -117,6 +117,12 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+                                <strong><i class="fas fa-book mr-1"></i>ایمیل :</strong>
+
+                                <p class="text-muted">
+                                    {{ user.email }}
+                                </p>
+                                <hr>
                                 <strong><i class="fas fa-book mr-1"></i>نام و نام خانوادگی :</strong>
 
                                 <p class="text-muted">
