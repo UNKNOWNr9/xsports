@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     avatar = models.ImageField(upload_to='user_avatar', null=True, blank=True, verbose_name='تصویر پروفایل')
     email_active_code = models.CharField(max_length=100, verbose_name='کد فعالسازی')
-    about_user = models.TextField(max_length=1000, verbose_name='درباره کاربر', default='درباره خودت یه چیزی بنویس که بقیه ببینن!')
+    about_user = models.TextField(max_length=1000, verbose_name='درباره کاربر', default='شما هیچ توضیحاتی درباره خودتان ننوشتید!')
     is_author = models.BooleanField(default=False, verbose_name='نویسنده')
     def __str__(self):
         return self.email
@@ -13,5 +13,3 @@ class CustomUser(AbstractUser):
     class Meta:
         verbose_name = 'کاربر'
         verbose_name_plural = 'کاربران'
-
-
