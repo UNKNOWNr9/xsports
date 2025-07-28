@@ -20,9 +20,11 @@ class ProfileView(LoginRequiredMixin, View):
 
 class EditProfileView(LoginRequiredMixin, View):
     def get(self, request):
+        user = CustomUser.objects.filter(id=request.user.id).first()
         edit_profile_form = EditProfileForm()
         context = {
-            'edit_profile_form': edit_profile_form
+            'edit_profile_form': edit_profile_form,
+            'user': user
         }
         return render(request, 'admin_module/edit_profile.html', context)
 
