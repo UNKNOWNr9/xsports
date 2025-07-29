@@ -13662,6 +13662,8 @@ select.form-clt:focus {
     background-color: #333333;
 }
 
+/*fields error*/
+
 .form-clt-errors {
     color: red !important;
 }

@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
-
+from django.contrib import messages
 from account_module.models import CustomUser
 from .forms import EditProfileForm
 
@@ -20,8 +20,12 @@ class ProfileView(LoginRequiredMixin, View):
 
 class EditProfileView(LoginRequiredMixin, View):
     def get(self, request):
-        user = CustomUser.objects.filter(id=request.user.id).first()
-        edit_profile_form = EditProfileForm()
+        user = request.user
+        edit_profile_form = EditProfileForm(initial={
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'about_user': user.about_user,
+        })
         context = {
             'edit_profile_form': edit_profile_form,
             'user': user
@@ -29,9 +33,15 @@ class EditProfileView(LoginRequiredMixin, View):
         return render(request, 'admin_module/edit_profile.html', context)
 
     def post(self, request):
-        edit_profile_form = EditProfileForm(request.POST)
+        edit_profile_form = EditProfileForm(request.POST, request.FILES)
+        user = request.user
         if edit_profile_form.is_valid():
-            pass
+            user.first_name = edit_profile_form.cleaned_data.get('first_name')
+            user.last_name = edit_profile_form.cleaned_data.get('last_name')
+            user.about_user = edit_profile_form.cleaned_data.get('about_user')
+            user.avatar = edit_profile_form.cleaned_data.get('avatar')
+            user.save()
+            messages.success(request, 'اطلاعات شما با موفقیت تغییر یافت!')
         context = {
             'edit_profile_form': edit_profile_form
         }

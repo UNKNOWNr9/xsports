@@ -22,13 +22,17 @@ class EditProfileForm(forms.Form):
         }),
     )
 
-    #TODO: make avatat field
-
-    about_author = forms.CharField(
-        label='درباره من',
-        max_length=500,
+    about_user = forms.CharField(
+        label='درباره شما',
         widget=forms.Textarea(attrs={
-            'class': '',
-            'placeholder': 'متن شما'
+            'class': 'form-control',
+            'placeholder': 'درباره خودتان یک پیامی بنویسید',
+        })
+    )
+
+    avatar = forms.FileField(
+        label='آواتار',
+        widget=forms.FileInput(attrs={
+            'class': 'custom-file-input',
         })
     )

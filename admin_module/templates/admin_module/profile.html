@@ -15,7 +15,13 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{% static 'adminLTE/dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+                    {% if user.avatar %}
+                        {% thumbnail user.avatar "160x160" as im %}
+                            <img class="img-circle elevation-2 mt-2" src="{{ im.url }}" alt="User profile picture">
+                        {% endthumbnail %}
+                    {% else %}
+                        <img class="img-circle elevation-2 mt-2" src="{% static 'xsports/img/user.png' %}" alt="User profile picture">
+                    {% endif %}
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">
@@ -81,7 +87,6 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -117,13 +122,13 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <strong><i class="fas fa-book mr-1"></i>ایمیل :</strong>
+                                <strong><i class="fas fa-envelope mr-1"></i>ایمیل :</strong>
 
                                 <p class="text-muted">
                                     {{ user.email }}
                                 </p>
                                 <hr>
-                                <strong><i class="fas fa-book mr-1"></i>نام و نام خانوادگی :</strong>
+                                <strong><i class="fas fa-user mr-1"></i>نام و نام خانوادگی :</strong>
 
                                 <p class="text-muted">
                                     {% if user.get_full_name %}
@@ -135,7 +140,7 @@
 
                                 <hr>
                                 {% if user.is_author %}
-                                    <strong><i class="fas fa-map-marker-alt mr-1"></i> دسترسی ها :</strong>
+                                    <strong><i class="fa fa-lock mr-1"></i> دسترسی ها :</strong>
 
                                     <p class="text-muted">
                                         نویسندگی مقالات،

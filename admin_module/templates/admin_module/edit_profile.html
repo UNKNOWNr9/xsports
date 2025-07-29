@@ -1,5 +1,6 @@
 {% extends 'admin_module/base.html' %}
 {% load static %}
+{% load thumbnail %}
 {% block title %}ویرایش اطلاعات کاربری{% endblock %}
 {% block sidebar %}
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -8,7 +9,13 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{% static 'adminLTE/dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+                    {% if user.avatar %}
+                        {% thumbnail user.avatar "160x160" as im %}
+                            <img class="img-circle elevation-2 mt-2" src="{{ im.url }}" alt="User profile picture">
+                        {% endthumbnail %}
+                    {% else %}
+                        <img class="img-circle elevation-2 mt-2" src="{% static 'xsports/img/user.png' %}" alt="User profile picture">
+                    {% endif %}
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">
@@ -92,8 +99,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-{#                            TODO: make this form#}
-                            <form method="post" novalidate> {% csrf_token %}
+                            <form method="post" novalidate enctype="multipart/form-data"> {% csrf_token %}
                                 <div class="card-body">
                                     <div class="form-group">
                                         {{ edit_profile_form.first_name.label_tag }}
@@ -104,20 +110,17 @@
                                         {{ edit_profile_form.last_name }}
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputFile">فایل</label>
+                                        {{ edit_profile_form.avatar.label_tag }}
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile">
                                                 <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">بارگزاری</span>
+                                                {{ edit_profile_form.avatar }}
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">مرا انتخاب کنید</label>
+                                    <div class="form-group">
+                                        {{ edit_profile_form.about_user.label_tag }}
+                                        {{ edit_profile_form.about_user }}
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
