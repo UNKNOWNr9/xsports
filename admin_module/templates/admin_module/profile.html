@@ -2,79 +2,6 @@
 {% load static %}
 {% load thumbnail %}
 {% block title %}پروفایل{% endblock %}
-{% block sidebar %}
-    <style>
-        .card-title {
-            float: right !important;
-        }
-    </style>
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    {% if user.avatar %}
-                        {% thumbnail user.avatar "160x160" as im %}
-                            <img class="img-circle elevation-2 mt-2" src="{{ im.url }}" alt="User profile picture">
-                        {% endthumbnail %}
-                    {% else %}
-                        <img class="img-circle elevation-2 mt-2" src="{% static 'xsports/img/user.png' %}" alt="User profile picture">
-                    {% endif %}
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">
-                        {% if user.get_full_name %}
-                            {{ user.get_full_name }}
-                        {% else %}
-                            {{ user.email | truncatechars:24 }}
-                        {% endif %}
-                    </a>
-                </div>
-            </div>
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fa fa-user"></i>
-                            <p>
-                                پروفایل
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{% url 'profile' %}" class="nav-link {% if request.path == '/dashboard/profile/' %}active{% endif %}">
-                                    <p>پروفایل من</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'edit_profile' %}" class="nav-link {% if request.path ==  '/dashboard/edit_profile/' %}active{% endif %}">
-                                    <p>ویرایش اطلاعات</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- Sidebar -->
-        <a href="#" class="brand-link">
-            <img src="{% static 'adminLTE/dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">داشبورد مدیریت</span>
-        </a>
-        <!-- /.sidebar -->
-    </aside>
-{% endblock %}
-
 {% block content %}
     <div class="content-wrapper" style="min-height: 1604.44px;">
         <!-- Content Header (Page header) -->
@@ -91,17 +18,67 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <!-- right column -->
+                    <div class="col-md-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">ویرایش اطلاعات</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form method="post" novalidate
+                                  enctype="multipart/form-data"> {% csrf_token %}
+                                <div class="card-body">
+                                    <div class="form-group {% if edit_profile_form.first_name.errors %}shake form-clt-errors {% endif %}">
+                                        {{ edit_profile_form.first_name.label_tag }}
+                                        {{ edit_profile_form.first_name }}
+                                    </div>
+                                    <div class="form-group {% if edit_profile_form.last_name.errors %}shake form-clt-errors {% endif %}">
+                                        {{ edit_profile_form.last_name.label_tag }}
+                                        {{ edit_profile_form.last_name }}
+                                    </div>
+                                    <div class="form-group {% if edit_profile_form.avatar.errors %}shake form-clt-errors {% endif %}">
+                                        {{ edit_profile_form.avatar.label_tag }}
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <label class="custom-file-label"
+                                                       for="exampleInputFile">انتخاب فایل</label>
+                                                {{ edit_profile_form.avatar }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group {% if edit_profile_form.about_user.errors %}shake form-clt-errors {% endif %}">
+                                        {{ edit_profile_form.about_user.label_tag }}
+                                        {{ edit_profile_form.about_user }}
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">ارسال</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (right) -->
+
+                    <!-- left column -->
+                    <div class="col-md-6">
+                        <div class="card-header card-header-custom">
+                            <h3 class="card-title">پروفایل من</h3>
+                        </div>
                         <!-- Profile Image -->
-                        <div class="card card-primary card-outline">
+                        <div class="">
                             <div class="card-body box-profile">
                                 <div class="text-center">
                                     {% if user.avatar %}
-                                        {% thumbnail user.avatar "128x128" as im %}
-                                            <img class="profile-user-img img-fluid img-circle" src="{{ im.url }}" alt="User profile picture">
-                                        {% endthumbnail %}
+                                        <img class="profile-user-img img-fluid img-circle" src="{{ user.avatar.url }}"
+                                             alt="User profile picture">
                                     {% else %}
-                                        <img class="profile-user-img img-fluid img-circle" src="{% static 'xsports/img/user.png' %}" alt="User profile picture">
+                                        <img class="profile-user-img img-fluid img-circle"
+                                             src="{% static 'xsports/img/user.png' %}" alt="User profile picture">
                                     {% endif %}
                                 </div>
                                 <h3 class="profile-username text-center">
@@ -155,10 +132,10 @@
                                     {% endif %}
                                 </p>
                             </div>
-                            <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
                     </div>
+                    <!--/.col (left) -->
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->

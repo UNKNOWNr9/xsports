@@ -1,10 +1,11 @@
 {% load static %}
+{% load thumbnail %}
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}داشبورد{% endblock %}</title>
+    <title>داشبورد | {% block title %}{% endblock %}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -156,8 +157,81 @@
     </nav>
     <!-- /.navbar -->
     {% block sidebar %}
+    <style>
+        .card-title {
+            float: right !important;
+        }
+    </style>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    {% if user.avatar %}
+                        {% thumbnail user.avatar "160x160" as im %}
+                            <img class="img-circle elevation-2 mt-2" src="{{ im.url }}" alt="User profile picture">
+                        {% endthumbnail %}
+                    {% else %}
+                        <img class="img-circle elevation-2 mt-2" src="{% static 'xsports/img/user.png' %}"
+                             alt="User profile picture">
+                    {% endif %}
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">
+                        {% if user.get_full_name %}
+                            {{ user.get_full_name }}
+                        {% else %}
+                            {{ user.email | truncatechars:24 }}
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
 
-    {% endblock %}
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-user"></i>
+                            <p>
+                                پروفایل
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{% url 'profile' %}"
+                                   class="nav-link {% if request.path == '/dashboard/profile/' %}active{% endif %}">
+                                    <p>پروفایل من</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'change_password' %}"
+                                   class="nav-link">
+                                    <p>تغییر کلمه عبور</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- Sidebar -->
+        <a href="#" class="brand-link">
+            <img src="{% static 'adminLTE/dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
+                 class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">داشبورد مدیریت</span>
+        </a>
+        <!-- /.sidebar -->
+    </aside>
+{% endblock %}
     <!-- /.content-wrapper -->
     {% block content %}
 

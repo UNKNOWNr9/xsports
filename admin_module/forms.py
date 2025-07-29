@@ -31,6 +31,7 @@ class EditProfileForm(forms.Form):
     )
 
     avatar = forms.FileField(
+        required=False,
         label='آواتار',
         widget=forms.FileInput(attrs={
             'class': 'custom-file-input',

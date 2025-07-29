@@ -11,15 +11,6 @@ class ProfileView(LoginRequiredMixin, View):
     login_url = 'login'
 
     def get(self, request):
-        user = CustomUser.objects.filter(id=request.user.id).first()
-        context = {
-            'user': user,
-        }
-        return render(request, 'admin_module/profile.html', context)
-
-
-class EditProfileView(LoginRequiredMixin, View):
-    def get(self, request):
         user = request.user
         edit_profile_form = EditProfileForm(initial={
             'first_name': user.first_name,
@@ -28,21 +19,26 @@ class EditProfileView(LoginRequiredMixin, View):
         })
         context = {
             'edit_profile_form': edit_profile_form,
-            'user': user
+            'user': user,
         }
-        return render(request, 'admin_module/edit_profile.html', context)
+        return render(request, 'admin_module/profile.html', context)
 
     def post(self, request):
-        edit_profile_form = EditProfileForm(request.POST, request.FILES)
         user = request.user
+        edit_profile_form = EditProfileForm(request.POST, request.FILES)
         if edit_profile_form.is_valid():
             user.first_name = edit_profile_form.cleaned_data.get('first_name')
             user.last_name = edit_profile_form.cleaned_data.get('last_name')
             user.about_user = edit_profile_form.cleaned_data.get('about_user')
             user.avatar = edit_profile_form.cleaned_data.get('avatar')
             user.save()
-            messages.success(request, 'اطلاعات شما با موفقیت تغییر یافت!')
+            return redirect('profile')
         context = {
             'edit_profile_form': edit_profile_form
         }
-        return render(request, 'admin_module/edit_profile.html', context)
+        return render(request, 'admin_module/profile.html', context)
+
+
+class ChangePasswordView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, 'admin_module/change_password.html')
