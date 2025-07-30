@@ -1,8 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from django.contrib import messages
-from account_module.models import CustomUser
 from .forms import EditProfileForm
 
 
@@ -40,5 +38,5 @@ class ProfileView(LoginRequiredMixin, View):
 
 
 class ChangePasswordView(LoginRequiredMixin, View):
-    def get(self, request):
-        return render(request, 'admin_module/change_password.html')
+    pass
+

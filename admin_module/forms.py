@@ -37,3 +37,31 @@ class EditProfileForm(forms.Form):
             'class': 'custom-file-input',
         })
     )
+
+
+class ResetPasswordForm(forms.Form):
+    old_password = forms.CharField(
+        label='کلمه عبور قبلی',
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'کلمه عبور فعلی را وارد کنید',
+        })
+    )
+
+    new_password = forms.CharField(
+        label='کلمه عبور جدید',
+        max_length=128,
+        min_length=8,
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'کلمه عبور جدید خود را وارد کنید',
+        })
+    )
+
+    confirm_password = forms.CharField(
+        label='تکرار کلمه عبور',
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'کلمه عبور جدید خود را تکرار کنید'
+        })
+    )
