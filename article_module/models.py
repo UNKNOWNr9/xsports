@@ -3,6 +3,20 @@ from django.db import models
 from account_module.models import CustomUser
 
 
+class ArticleManager(models.Manager):
+    def published(self):
+        return self.filter(status=Article.STATUS.PUBLISHED)
+
+    def draft(self):
+        return self.filter(status=Article.STATUS.DRAFT)
+
+    def investigation(self):
+        return self.filter(status=Article.STATUS.INVESTIGATION)
+
+    def rejected(self):
+        return self.filter(status=Article.STATUS.REJECTED)
+
+
 class ArticleCategory(models.Model):
     title = models.CharField(max_length=25, unique=True, verbose_name='عنوان')
     is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
@@ -17,15 +31,22 @@ class ArticleCategory(models.Model):
 
 
 class Article(models.Model):
+    class STATUS(models.TextChoices):
+        DRAFT = 'DF', 'پیشنویس'
+        PUBLISHED = 'PB', 'منتشرشده'
+        REJECTED = 'RJ', 'رد شده'
+        INVESTIGATION = 'IN', 'در حال بررسی'
+
     title = models.CharField(max_length=100, verbose_name='عنوان')
     image = models.ImageField(upload_to='article_images', verbose_name='تصویر')
     content = models.TextField(verbose_name='توضیحات')
     create_date = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
     slug = models.SlugField(unique=True, verbose_name='آدرس')
-    is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
+    status = models.CharField(max_length=25, default=STATUS.DRAFT, verbose_name='وضعیت')
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='نویسنده')
     selected_category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE, verbose_name='دسته بندی ها',
                                           related_name='article_category')
+    objects = ArticleManager()
 
     def __str__(self):
         return self.title

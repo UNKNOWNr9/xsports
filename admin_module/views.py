@@ -5,6 +5,7 @@ from .forms import EditProfileForm, ChangePasswordForm
 from account_module.models import CustomUser
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
+from .mixins import AuthorRequiredMixin
 
 
 class ProfileView(LoginRequiredMixin, View):

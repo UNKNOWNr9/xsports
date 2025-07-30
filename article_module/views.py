@@ -10,13 +10,13 @@ from .models import Article, ArticleCategory, ArticleComments
 
 class ArticleListView(ListView):
     template_name = 'article_module/article_list.html'
-    queryset = Article.objects.filter(is_active=True).order_by('-create_date')
+    queryset = Article.objects.published().order_by('-create_date')
     paginate_by = 3
 
 
 class ArticleDetailView(DetailView):
     template_name = 'article_module/article_detail.html'
-    queryset = Article.objects.filter(is_active=True)
+    queryset = Article.objects.published()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -46,7 +46,7 @@ class ArticleDetailView(DetailView):
 
 
 def article_sidebar(request):
-    latest_articles = Article.objects.filter(is_active=True).order_by('-create_date')
+    latest_articles = Article.objects.published().order_by('-create_date')
     categories = ArticleCategory.objects.filter(is_active=True).annotate(count=Count('article_category'))
     context = {
         'latest_artciles': latest_articles,
@@ -57,7 +57,7 @@ def article_sidebar(request):
 
 def article_by_category(request, slug):
     category = get_object_or_404(ArticleCategory, slug=slug, is_active=True)
-    article = Article.objects.filter(selected_category=category, is_active=True)
+    article = Article.objects.published().filter(selected_category=category)
     context = {
         'categories': category,
         'articles': article,
@@ -67,7 +67,7 @@ def article_by_category(request, slug):
 
 def article_by_author(request, username):
     author = get_object_or_404(CustomUser, username=username)
-    article = Article.objects.filter(author=author, is_active=True)
+    article = Article.objects.published().filter(author=author)
     context = {
         'author': author,
         'articles': article
