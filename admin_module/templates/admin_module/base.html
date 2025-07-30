@@ -212,8 +212,14 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{% url 'change_password' %}"
-                                   class="nav-link">
+                                   class="nav-link {% if request.path == '/dashboard/change-password/' %}active{% endif %}">
                                     <p>تغییر کلمه عبور</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'logout' %}"
+                                   class="nav-link">
+                                    <p>خروج</p>
                                 </a>
                             </li>
                         </ul>

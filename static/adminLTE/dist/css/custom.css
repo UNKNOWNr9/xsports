@@ -84,3 +84,7 @@
 .shake {
   animation: shake 0.4s ease;
 }
+
+.card-header-custom {
+    background-color: #28a745;
+}

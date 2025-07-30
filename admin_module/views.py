@@ -1,7 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.views.generic import View
-from .forms import EditProfileForm
+from .forms import EditProfileForm, ChangePasswordForm
+from account_module.models import CustomUser
+from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
 
 
 class ProfileView(LoginRequiredMixin, View):
@@ -38,5 +41,31 @@ class ProfileView(LoginRequiredMixin, View):
 
 
 class ChangePasswordView(LoginRequiredMixin, View):
-    pass
+    def get(self, request):
+        change_password_form = ChangePasswordForm
+        context = {
+            'change_password_form': change_password_form
+        }
+        return render(request, 'admin_module/change_password.html', context)
+
+    def post(self, request):
+        user: CustomUser = request.user
+        change_password_form = ChangePasswordForm(request.POST)
+        if change_password_form.is_valid():
+            old_password = change_password_form.cleaned_data.get('old_password')
+            new_password = change_password_form.cleaned_data.get('new_password')
+            if user.check_password(old_password):
+                user.set_password(new_password)
+                user.save()
+                messages.success(request, 'رمز عبور شما با موفقیت تغییر کرد!')
+                update_session_auth_hash(request, user)
+                return redirect(reverse('change_password'))
+            else:
+                change_password_form.add_error('old_password', 'رمز عبور فعلی نادرست است.')
+
+        context = {
+            'change_password_form': change_password_form
+        }
+        return render(request, 'admin_module/change_password.html', context)
+
 
