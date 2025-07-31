@@ -86,7 +86,7 @@
                         {% endif %}
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">
+                        <a href="{% url 'profile' %}" class="d-block">
                             {% if user.get_full_name %}
                                 {{ user.get_full_name }}
                             {% else %}
@@ -133,7 +133,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
-                                <i class="nav-icon fa fa-user"></i>
+                                <i class="nav-icon fa fa-pen"></i>
                                 <p>
                                     نویسندگی
                                     <i class="right fas fa-angle-left"></i>
@@ -141,27 +141,33 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="{% url 'published_posts' %}"
+                                       class="nav-link {% if request.path == '/dashboard/published-posts/' %}active{% endif %}">
+                                        <p>پست های من</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{% url 'add_article' %}"
-                                       class="nav-link {% if request.path == '/dashboard/add-article/'%}active{% endif %}">
+                                       class="nav-link {% if request.path == '/dashboard/add-article/' %}active{% endif %}">
                                         <p>افزودن پست</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#"
-                                       class="nav-link">
-                                        <p>ویرایش پست</p>
+                                    <a href="{% url 'draft_posts' %}"
+                                       class="nav-link {% if request.path == '/dashboard/draft-posts/' %}active{% endif %}">
+                                        <p>پست های پیشنویس</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#"
-                                       class="nav-link">
-                                        <p>پست های رد شده</p>
+                                    <a href="{% url 'investigation_posts' %}"
+                                       class="nav-link {% if request.path == '/dashboard/investigation-posts/' %}active{% endif %}">
+                                        <p>پست های در حال بررسی</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#"
-                                       class="nav-link">
-                                        <p>پست های منتشر شده</p>
+                                    <a href="{% url 'rejected_posts' %}"
+                                       class="nav-link {% if request.path == '/dashboard/rejected-posts/' %}active{% endif %}">
+                                        <p>پست های ریجکت شده</p>
                                     </a>
                                 </li>
                             </ul>

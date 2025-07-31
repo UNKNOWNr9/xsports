@@ -1,12 +1,14 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect, reverse
-from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import render, redirect, reverse, Http404
+from django.views.generic import View, ListView, DeleteView, UpdateView
 from .forms import EditProfileForm, ChangePasswordForm
 from account_module.models import CustomUser
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from .forms import ArticleForm
 from .mixins import AuthorRequiredMixin
+from article_module.models import Article
+from django.urls import reverse_lazy
 
 
 class ProfileView(LoginRequiredMixin, View):
@@ -85,3 +87,60 @@ class AddArticleView(AuthorRequiredMixin, View):
             # TODO: redirect to my posts
             return redirect('add_article')
         return render(request, 'admin_module/add_article.html', {'form': form})
+
+
+class PublishedPostsView(AuthorRequiredMixin, ListView):
+    model = Article
+    template_name = 'admin_module/published_posts.html'
+
+    def get_queryset(self):
+        return Article.objects.published().filter(author=self.request.user).order_by('-create_date')
+
+
+class DraftPostsView(AuthorRequiredMixin, ListView):
+    model = Article
+    template_name = 'admin_module/draft_posts.html'
+
+    def get_queryset(self):
+        return Article.objects.draft().filter(author=self.request.user).order_by('-create_date')
+
+
+class RejectedPostsView(AuthorRequiredMixin, ListView):
+    model = Article
+    template_name = 'admin_module/rejected_posts.html'
+
+    def get_queryset(self):
+        return Article.objects.rejected().filter(author=self.request.user).order_by('-create_date')
+
+
+class InvestigationPostsView(AuthorRequiredMixin, ListView):
+    model = Article
+    template_name = 'admin_module/investigation_posts.html'
+
+    def get_queryset(self):
+        return Article.objects.investigation().filter(author=self.request.user)
+
+
+class EditArticleView(AuthorRequiredMixin, UpdateView):
+    model = Article
+    template_name = 'admin_module/edit_article.html'
+    form_class = ArticleForm
+    success_url = reverse_lazy('published_posts')
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.author != self.request.user:
+            raise Http404("دسترسی غیرمجاز")
+        if obj.status == 'published':
+            raise Http404("پست منتشر شده قابل ویرایش نیست.")
+        return obj
+
+
+class ArticleDeleteView(AuthorRequiredMixin, UserPassesTestMixin, DeleteView):
+    template_name = 'admin_module/published_posts.html'
+    model = Article
+    success_url = reverse_lazy('published_posts')
+
+    def test_func(self):
+        article = self.get_object()
+        return article.author == self.request.user
