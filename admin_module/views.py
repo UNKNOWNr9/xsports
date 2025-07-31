@@ -1,11 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, reverse
-from django.views.generic import View, CreateView
+from django.views.generic import View
 from .forms import EditProfileForm, ChangePasswordForm
 from account_module.models import CustomUser
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from .forms import ArticleForm
+from .mixins import AuthorRequiredMixin
 
 
 class ProfileView(LoginRequiredMixin, View):
@@ -70,7 +71,7 @@ class ChangePasswordView(LoginRequiredMixin, View):
         return render(request, 'admin_module/change_password.html', context)
 
 
-class AddArticleView(View):
+class AddArticleView(AuthorRequiredMixin, View):
     def get(self, request):
         form = ArticleForm()
         return render(request, 'admin_module/add_article.html', {'form': form})
