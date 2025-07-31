@@ -1,6 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
-from account_module.models import CustomUser
 
 
 class AuthorRequiredMixin(LoginRequiredMixin):

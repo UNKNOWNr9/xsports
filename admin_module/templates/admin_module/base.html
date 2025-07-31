@@ -141,8 +141,8 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#"
-                                       class="nav-link">
+                                    <a href="{% url 'add_article' %}"
+                                       class="nav-link {% if request.path == '/dashboard/add-article/'%}active{% endif %}">
                                         <p>افزودن پست</p>
                                     </a>
                                 </li>

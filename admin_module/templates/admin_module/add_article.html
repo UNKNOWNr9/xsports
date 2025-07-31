@@ -1,0 +1,78 @@
+{% extends 'admin_module/base.html' %}
+{% load static %}
+{% block title %}افزودن پست{% endblock %}
+{% block content %}
+    <div class="content-wrapper" style="min-height: 1345.31px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>نویسندگی</h1>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- right column -->
+                    <div class="col-md-12">
+                        <!-- Form Element sizes -->
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h3 class="card-title">افزودن پست</h3>
+                            </div>
+                            <form method="post" enctype="multipart/form-data" class="p-3">
+                                {% csrf_token %}
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        {{ form.title.label_tag }}
+                                        {{ form.title }}
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        {{ form.slug.label_tag }}
+                                        {{ form.slug }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        {{ form.image.label_tag }}
+                                        <div class="custom-file">
+                                            {{ form.image }}
+                                            <label class="custom-file-label" for="{{ form.image.id_for_label }}">انتخاب
+                                                عکس</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        {{ form.selected_category.label_tag }}
+                                        {{ form.selected_category }}
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ form.content.label_tag }}
+                                    {{ form.content }}
+                                </div>
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">ارسال</button>
+                                </div>
+                            </form>
+
+
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+{% endblock %}

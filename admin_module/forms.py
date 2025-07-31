@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from article_module.models import Article
 
 
 class EditProfileForm(forms.Form):
@@ -74,3 +75,20 @@ class ChangePasswordForm(forms.Form):
             return new_password
         else:
             raise ValidationError('تکرار کلمه عبور اشتباه است')
+
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'slug', 'image', 'selected_category', 'content']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'slug': forms.TextInput(attrs={'class': 'form-control'}),
+            'selected_category': forms.Select(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 5,
+                'style': 'line-height: 5;',  # افزایش فاصله بین خطوط
+            }),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
