@@ -22,6 +22,12 @@
                     <div class="col-md-12">
                         <!-- Form Element sizes -->
                         <div class="card card-success">
+                            {% if rejection_reason %}
+                                <div class="alert alert-warning" role="alert">
+                                    <strong>دلیل رد شدن پست:</strong><br>
+                                    <p>{{ rejection_reason }}</p>
+                                </div>
+                            {% endif %}
                             <div class="card-header">
                                 <h3 class="card-title">ویرایش پست</h3>
                             </div>
@@ -55,7 +61,10 @@
                                 </div>
 
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">ارسال</button>
+                                    <button type="submit" class="btn btn-primary" name="save">پیشنویس</button>
+                                    <button type="submit" class="btn btn-success" name="send_for_review">ارسال برای
+                                        بررسی
+                                    </button>
                                 </div>
                             </form>
                             <!-- /.card-body -->

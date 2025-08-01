@@ -85,7 +85,7 @@ class AddArticleView(AuthorRequiredMixin, View):
             article.author = request.user
             article.save()
             # TODO: redirect to my posts
-            return redirect('add_article')
+            return redirect('draft_posts')
         return render(request, 'admin_module/add_article.html', {'form': form})
 
 
@@ -125,15 +125,32 @@ class EditArticleView(AuthorRequiredMixin, UpdateView):
     model = Article
     template_name = 'admin_module/edit_article.html'
     form_class = ArticleForm
-    success_url = reverse_lazy('published_posts')
+    success_url = reverse_lazy('draft_posts')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.object.status == 'RJ':
+            context['rejection_reason'] = self.object.rejected_reason
+        return context
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
         if obj.author != self.request.user:
             raise Http404("دسترسی غیرمجاز")
-        if obj.status == 'published':
-            raise Http404("پست منتشر شده قابل ویرایش نیست.")
+        if obj.status == 'PB' or obj.status == 'IN':
+            raise Http404("پست ارسال شده و قابل ادیت نیست")
         return obj
+
+    def form_valid(self, form):
+        article = form.save(commit=False)
+
+        if 'send_for_review' in self.request.POST:
+            article.status = 'IN'
+        else:
+            article.status = 'DF'
+
+        article.save()
+        return super().form_valid(form)
 
 
 class ArticleDeleteView(AuthorRequiredMixin, UserPassesTestMixin, DeleteView):

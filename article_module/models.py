@@ -44,8 +44,8 @@ class Article(models.Model):
     slug = models.SlugField(unique=True, verbose_name='آدرس')
     status = models.CharField(max_length=25, default=STATUS.DRAFT, verbose_name='وضعیت')
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='نویسنده')
-    selected_category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE, verbose_name='دسته بندی ها',
-                                          related_name='article_category')
+    selected_category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE, verbose_name='دسته بندی ها', related_name='article_category')
+    rejected_reason = models.TextField(null=True, blank=True)
     objects = ArticleManager()
 
     def __str__(self):

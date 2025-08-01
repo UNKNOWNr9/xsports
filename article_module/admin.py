@@ -5,7 +5,8 @@ from .models import Article, ArticleCategory, ArticleComments
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'create_date', 'selected_category', 'author']
+    list_display = ['title', 'create_date', 'selected_category', 'author', 'status']
+    list_editable = ['status',]
 
 
 @admin.register(ArticleCategory)

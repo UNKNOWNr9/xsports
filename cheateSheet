@@ -5,5 +5,7 @@ git start : 4
 TODO :
 make url copy from title + persian lang
 جلوگیری از اسپم کردم فرم ها مثل لاگین
- email_service failed log
- make a fullName input if fullName exist else email
+email_service failed log
+make a fullName input if fullName exist else email
+in admin_module if user is author can see the author sidebar else can send a ticket for author
+in admin_module sidebar active link
