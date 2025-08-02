@@ -42,30 +42,30 @@
                                 <h3 class="card-title">درخواست نویسندگی</h3>
                             </div>
                             <form method="post" enctype="multipart/form-data" class="p-3"
-                                  action="{% url 'author_request' %}">
+                                  action="{% url 'author_request' %}" novalidate>
                                 {% csrf_token %}
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-3 {% if author_request_form.full_name.errors %}shake form-clt-errors{% endif %}">
                                         {{ author_request_form.full_name.label_tag }}
                                         {{ author_request_form.full_name }}
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-3 {% if author_request_form.age.errors %}shake form-clt-errors{% endif %}">
                                         {{ author_request_form.age.label_tag }}
                                         {{ author_request_form.age }}
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-3 {% if author_request_form.city.errors %}shake form-clt-errors{% endif %}">
                                         {{ author_request_form.city.label_tag }}
                                         {{ author_request_form.city }}
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-3 {% if author_request_form.phone.errors %}shake form-clt-errors{% endif %}">
                                         {{ author_request_form.phone.label_tag }}
                                         {{ author_request_form.phone }}
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-3 {% if author_request_form.resume.errors %}shake form-clt-errors{% endif %}">
                                     {{ author_request_form.resume.label_tag }}
                                     {{ author_request_form.resume }}
                                 </div>
