@@ -5,10 +5,11 @@ from .forms import EditProfileForm, ChangePasswordForm
 from account_module.models import CustomUser
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
-from .forms import ArticleForm
+from .forms import ArticleForm, AuthorRequestForm
 from .mixins import AuthorRequiredMixin
 from article_module.models import Article
 from django.urls import reverse_lazy
+from .models import AuthorRequest
 
 
 class ProfileView(LoginRequiredMixin, View):
@@ -161,3 +162,32 @@ class ArticleDeleteView(AuthorRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         article = self.get_object()
         return article.author == self.request.user
+
+
+class AuthorRequestView(LoginRequiredMixin, View):
+    def get(self, request):
+        author_request_form = AuthorRequestForm()
+        context = {
+            'author_request_form': author_request_form
+        }
+        return render(request, 'admin_module/author-request.html', context)
+
+    def post(self, request):
+        if AuthorRequest.objects.filter(email=request.user.email).exists():
+            messages.error(request,
+                           'شما قبلاً درخواست نویسندگی ثبت کرده‌اید. رزومه شما در حال بررسی می‌باشد. از صبر و شکیبایی شما سپاسگزاریم.')
+            return redirect('author_request')
+
+        author_request_form = AuthorRequestForm(request.POST)
+        if author_request_form.is_valid():
+            author_request = author_request_form.save(commit=False)
+            author_request.email = request.user.email
+            author_request.save()
+            messages.success(request,
+                             'درخواست شما با موفقیت ثبت شد. طی یک هفته بررسی خواهد شد و با شما تماس گرفته می‌شود.')
+            return redirect('author_request')
+
+        context = {
+            'author_request_form': author_request_form
+        }
+        return render(request, 'admin_module/author-request.html', context)

@@ -1,0 +1,90 @@
+{% extends 'admin_module/base.html' %}
+{% load static %}
+{% block title %}درخواست نویسندگی{% endblock %}
+{% block content %}
+    <div class="content-wrapper" style="min-height: 1345.31px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>نویسندگی</h1>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="alert alert-primary" role="alert">
+                    <strong>از اعتماد و علاقه شما برای پیوستن به تیم نویسندگان ما سپاسگزاریم.</strong><br>
+                    <p> اطلاعات و سوابق ارسالی شما
+                        دریافت میشود و توسط تیم مربوطه بررسی خواهد شد.
+
+                        فرآیند بررسی حداکثر تا یک هفته کاری انجام می‌شود و در صورت تأیید، با شما تماس گرفته خواهد شد.
+
+                        با آرزوی موفقیت 🌟</p>
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-info" role="alert">
+                            <strong>{{ message }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="row">
+                    <!-- right column -->
+                    <div class="col-md-12">
+                        <!-- Form Element sizes -->
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h3 class="card-title">درخواست نویسندگی</h3>
+                            </div>
+                            <form method="post" enctype="multipart/form-data" class="p-3"
+                                  action="{% url 'author_request' %}">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        {{ author_request_form.full_name.label_tag }}
+                                        {{ author_request_form.full_name }}
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        {{ author_request_form.age.label_tag }}
+                                        {{ author_request_form.age }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        {{ author_request_form.city.label_tag }}
+                                        {{ author_request_form.city }}
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        {{ author_request_form.phone.label_tag }}
+                                        {{ author_request_form.phone }}
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ author_request_form.resume.label_tag }}
+                                    {{ author_request_form.resume }}
+                                </div>
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-success" name="send_for_review">ارسال برای
+                                        بررسی
+                                    </button>
+                                </div>
+                            </form>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+{% endblock %}

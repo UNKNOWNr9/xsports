@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from article_module.models import Article
+from .models import AuthorRequest
 
 
 class EditProfileForm(forms.Form):
@@ -91,4 +92,17 @@ class ArticleForm(forms.ModelForm):
                 'style': 'line-height: 5;',  # افزایش فاصله بین خطوط
             }),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
+
+
+class AuthorRequestForm(forms.ModelForm):
+    class Meta:
+        model = AuthorRequest
+        exclude = ['email']
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'age': forms.NumberInput(attrs={'class': 'form-control'}),
+            'city': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'resume': forms.Textarea(attrs={'class': 'form-control'}),
         }

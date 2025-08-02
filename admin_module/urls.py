@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProfileView, ChangePasswordView, AddArticleView, PublishedPostsView, ArticleDeleteView, DraftPostsView, RejectedPostsView, InvestigationPostsView, EditArticleView
+from .views import ProfileView, ChangePasswordView, AddArticleView, PublishedPostsView, ArticleDeleteView, DraftPostsView, RejectedPostsView, InvestigationPostsView, EditArticleView, AuthorRequestView
 
 urlpatterns = [
     path('profile/', ProfileView.as_view(), name='profile'),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('rejected-posts/', RejectedPostsView.as_view(), name='rejected_posts'),
     path('investigation-posts/', InvestigationPostsView.as_view(), name='investigation_posts'),
     path('articles/delete/<int:pk>/', ArticleDeleteView.as_view(), name='article-delete'),
+    path('author-request/', AuthorRequestView.as_view(), name='author_request'),
 ]

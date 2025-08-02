@@ -92,7 +92,8 @@
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                            <a href="#"
+                               class="nav-link {% if request.path == '/dashboard/profile/' or request.path == '/dashboard/change-password/' %}active{% endif %}">
                                 <i class="nav-icon fa fa-user"></i>
                                 <p>
                                     پروفایل
@@ -122,7 +123,8 @@
                         </li>
                         {% if request.user.is_author %}
                             <li class="nav-item has-treeview menu-open">
-                                <a href="#" class="nav-link {% if request.path == '/dashboard/add_article/' or request.path == '/dashboard/edit_article/' or request.path == '/dashboard/published_posts/' or request.path == '/dashboard/published_posts/' or request.path == '/dashboard/draft_posts/' or request.path == '/dashboard/rejected_posts/' or request.path == '/dashboard/investigation_posts/' %}active{% endif %}">
+                                <a href="#"
+                                   class="nav-link {% if request.path == '/dashboard/add-article/' or request.path == '/dashboard/edit-article/' or request.path == '/dashboard/published-posts/' or request.path == '/dashboard/published-posts/' or request.path == '/dashboard/draft-posts/' or request.path == '/dashboard/rejected-posts/' or request.path == '/dashboard/investigation-posts/' %}active{% endif %}">
                                     <i class="nav-icon fa fa-pen"></i>
                                     <p>
                                         نویسندگی
@@ -164,10 +166,10 @@
                             </li>
                         {% else %}
                             <li class="nav-item has-treeview menu-open">
-                                <a href="#" class="nav-link">
+                                <a href="{% url 'author_request' %}" class="nav-link {% if request.path == '/dashboard/author-request/' %}active{% endif %}">
                                     <i class="nav-icon fa fa-pen"></i>
                                     <p>
-                                        نویسندگی
+                                        درخواست نویسندگی
                                     </p>
                                 </a>
                             </li>
@@ -176,14 +178,6 @@
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
-            <!-- Sidebar -->
-            <a href="#" class="brand-link">
-                <img src="{% static 'adminLTE/dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo"
-                     class="brand-image img-circle elevation-3"
-                     style="opacity: .8">
-                <span class="brand-text font-weight-light">داشبورد مدیریت</span>
-            </a>
-            <!-- /.sidebar -->
         </aside>
     {% endblock %}
     <!-- /.content-wrapper -->
