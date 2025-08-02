@@ -120,47 +120,58 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fa fa-pen"></i>
-                                <p>
-                                    نویسندگی
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{% url 'published_posts' %}"
-                                       class="nav-link {% if request.path == '/dashboard/published-posts/' %}active{% endif %}">
-                                        <p>پست های من</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{% url 'add_article' %}"
-                                       class="nav-link {% if request.path == '/dashboard/add-article/' %}active{% endif %}">
-                                        <p>افزودن پست</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{% url 'draft_posts' %}"
-                                       class="nav-link {% if request.path == '/dashboard/draft-posts/' %}active{% endif %}">
-                                        <p>پست های پیشنویس</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{% url 'investigation_posts' %}"
-                                       class="nav-link {% if request.path == '/dashboard/investigation-posts/' %}active{% endif %}">
-                                        <p>پست های در حال بررسی</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{% url 'rejected_posts' %}"
-                                       class="nav-link {% if request.path == '/dashboard/rejected-posts/' %}active{% endif %}">
-                                        <p>پست های ریجکت شده</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        {% if request.user.is_author %}
+                            <li class="nav-item has-treeview menu-open">
+                                <a href="#" class="nav-link {% if request.path == '/dashboard/add_article/' or request.path == '/dashboard/edit_article/' or request.path == '/dashboard/published_posts/' or request.path == '/dashboard/published_posts/' or request.path == '/dashboard/draft_posts/' or request.path == '/dashboard/rejected_posts/' or request.path == '/dashboard/investigation_posts/' %}active{% endif %}">
+                                    <i class="nav-icon fa fa-pen"></i>
+                                    <p>
+                                        نویسندگی
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{% url 'published_posts' %}"
+                                           class="nav-link {% if request.path == '/dashboard/published-posts/' %}active{% endif %}">
+                                            <p>پست های من</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'add_article' %}"
+                                           class="nav-link {% if request.path == '/dashboard/add-article/' %}active{% endif %}">
+                                            <p>افزودن پست</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'draft_posts' %}"
+                                           class="nav-link {% if request.path == '/dashboard/draft-posts/' %}active{% endif %}">
+                                            <p>پست های پیشنویس</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'investigation_posts' %}"
+                                           class="nav-link {% if request.path == '/dashboard/investigation-posts/' %}active{% endif %}">
+                                            <p>پست های در حال بررسی</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'rejected_posts' %}"
+                                           class="nav-link {% if request.path == '/dashboard/rejected-posts/' %}active{% endif %}">
+                                            <p>پست های ریجکت شده</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="nav-item has-treeview menu-open">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-pen"></i>
+                                    <p>
+                                        نویسندگی
+                                    </p>
+                                </a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
