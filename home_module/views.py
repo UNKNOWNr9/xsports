@@ -1,5 +1,5 @@
-from django.views.generic import TemplateView
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
 class HomeView(TemplateView):
@@ -12,3 +12,7 @@ def footer_component_view(request):
 
 def header_component_view(request):
     return render(request, 'shared/site_header_component.html')
+
+
+def coming_soon(request):
+   return render(request, 'home_module/coming_soon.html')

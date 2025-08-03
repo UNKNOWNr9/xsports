@@ -1,0 +1,57 @@
+{% extends 'shared/_layout.html' %}
+{% load static %}
+{% block title %}به زودی{% endblock %}
+{% block content %}
+    <section class="gt-cooming-soon-section section-padding fix bg-cover" style="background-image: url({% static 'xsports/img/inner-page/cooming-soon.jpg' %});">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="gt-coming-soon-items">
+                        <a href="index.html" class="gt-footer-logo">
+                            <img src="{% static 'xsports/img/logo/white-logo.svg' %}" alt="img">
+                        </a>
+                        <h2 class="text wow fadeInUp" data-wow-delay=".3s">
+                            به‌زودی بازمی‌گردیم
+                        </h2>
+                        <p class="wow fadeInUp" data-wow-delay=".5s">
+                            نزدیکیم! اگر می‌خواهید هنگام آنلاین شدن وب‌سایت باخبر شوید، به لیست ایمیل ما بپیوندید.
+                        </p>
+                        <div class="gt-coming-soon-time wow fadeInUp rtl" data-wow-delay=".3s">
+                            <div class="gt-timer-content">
+                                <h2 id="day">20</h2>
+                                <p>روز</p>
+                            </div>
+                            <div class="gt-timer-content">
+                                <h2 id="hour">45</h2>
+                                <p>ساعت</p>
+                            </div>
+                            <div class="gt-timer-content">
+                                <h2 id="min">59</h2>
+                                <p>دقیقه</p>
+                            </div>
+                            <div class="gt-timer-content">
+                                <h2 id="sec">39</h2>
+                                <p>ثانیه</p>
+                            </div>
+                        </div>
+                        <form action="#" class="wow fadeInUp" data-wow-delay=".5s">
+                            <div class="form-clt rtl">
+                                <input type="text" name="email" id="email1" placeholder="آدرس ایمیل شما">
+                                <button type="submit" class="gt-theme-btn">
+                                    <span class="gt-text-btn">همین الان مشترک شوید</span>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="gt-social-icon d-flex align-items-center wow fadeInUp rtl" data-wow-delay=".3s">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fa-solid fa-camera"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
