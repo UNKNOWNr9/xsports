@@ -2,9 +2,6 @@
 {% load render_partial %}
 <!DOCTYPE html>
 <html lang="fa">
-<!--<< Header Area >>-->
-
-<!-- Mirrored from ex-coders.com/html/xports/# by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 May 2025 06:46:17 GMT -->
 <head>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
@@ -22,11 +19,9 @@
 <button id="gt-back-top" class="gt-back-to-top show">
     <i class="fa-regular fa-arrow-up"></i>
 </button>
-
 <!-- GT MouseCursor Start -->
 <div class="mouseCursor cursor-outer"></div>
 <div class="mouseCursor cursor-inner"></div>
-
 <!-- burger menu Area Start -->
 <div class="fix-area rtl">
     <div class="offcanvas__info">
@@ -117,146 +112,6 @@
         </form>
     </div>
 </div>
-
-<!-- GT Shop Details Popup Start -->
-<div class="modal modal-common-wrap fade" id="exampleModal2" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog style-shop-details modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="gt-shop-details-left-item">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a href="#thumb4" data-bs-toggle="tab" class="nav-link ps-0">
-                                        <img src="{% static 'xsports/img/inner-page/shop-details/product-1.jpg' %}"
-                                             alt="img">
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#thumb5" data-bs-toggle="tab" class="nav-link active">
-                                        <img src="{% static 'xsports/img/inner-page/shop-details/product-2.jpg' %}"
-                                             alt="img">
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#thumb6" data-bs-toggle="tab" class="nav-link">
-                                        <img src="{% static 'xsports/img/inner-page/shop-details/product-2.jpg' %}"
-                                             alt="img">
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div id="thumb4" class="tab-pane fade">
-                                    <div class="shop-thumb">
-                                        <img src="{% static 'xsports/img/inner-page/shop-details/product-4.jpg' %}"
-                                             alt="img">
-                                    </div>
-                                </div>
-                                <div id="thumb5" class="tab-pane fade show active">
-                                    <div class="shop-thumb">
-                                        <img src="{% static 'xsports/img/inner-page/shop-details/product-4.jpg' %}"
-                                             alt="img">
-                                    </div>
-                                </div>
-                                <div id="thumb6" class="tab-pane fade">
-                                    <div class="shop-thumb">
-                                        <img src="{% static 'xsports/img/inner-page/shop-details/product-4.jpg' %}"
-                                             alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="gt-shop-details-content">
-                            <ul class="gt-tag-list">
-                                <li>
-                                    <i class="fa-solid fa-tag"></i>
-                                    گیم مکس
-                                </li>
-                            </ul>
-                            <h4>
-                                صندلی بازی چندمنظوره
-                            </h4>
-                            <div class="star">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star gt-color"></i>
-                                <span>(۱ نظر مشتری)</span>
-                            </div>
-                            <div class="gt-list-item">
-                                <h6>ویژگی‌های کلیدی</h6>
-                                <ul class="gt-list">
-                                    <li>
-                                        کاملا گیاهی با روکش چرم مصنوعی
-                                    </li>
-                                    <li>
-                                        دسته‌های ثابت با بالشتک نرم
-                                    </li>
-                                    <li>
-                                        مکانیزم گهواره‌ای درجه‌یک تا 15 درجه
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="gt-price-item">
-                                <h6>
-                                    قیمت معمولی <span>: تومان129</span>
-                                </h6>
-                                <h6 class="gt-bg">
-                                    قیمت با تخفیف <span class="gt-color">: تومان999</span>
-                                </h6>
-                                <h6>
-                                    کد محصول : 18396
-                                </h6>
-                            </div>
-                            <h6 class="gt-text">
-                                وضعیت <span>: موجود در انبار</span>
-                            </h6>
-                            <div class="gt-color-list">
-                                <h6>
-                                    انتخاب رنگ :
-                                </h6>
-                                <ul class="gt-list-color-product">
-                                    <li class="list-color-item color-swatch active">
-                                        <span class="swatch-value gt-bg-color"></span>
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="swatch-value gt-bg-color-2"></span>
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="swatch-value gt-bg-color-3"></span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="gt-button-wrapper">
-                                <div class="cart-quantity">
-                                    <p class="qty">
-                                        <button class="qtyminus" aria-hidden="true">−</button>
-                                        <input type="number" name="qty" id="qty3" min="1" max="10" step="1" value="1">
-                                        <button class="qtyplus" aria-hidden="true">+</button>
-                                    </p>
-                                </div>
-                                <a href="#" class="gt-theme-btn">
-                                    افزودن به سبد خرید
-                                </a>
-                                <a href="#" class="gt-theme-btn gt-style-border style-2">
-                                    همین حالا بخر
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <section class="hero-section hero-1 fix bg-cover rtl"
          style="background-image: url(
                  {% block header_bg %}{% static 'xsports/img/home-1/hero/hero-bg.jpg' %}{% endblock %});">
@@ -270,14 +125,14 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-content">
-                    <h6 class="wow animated-image">دنیای نهایی و بی‌نظیر بازی‌های آینده شما</h6>
+                    <h6 class="wow animated-image">{% block header_subtitle %}دنیای نهایی و بی‌نظیر بازی‌های آینده شما{% endblock %}</h6>
                     <h1 class="wow animated-image">
-                        ارتقای تجربه‌ای جدید از بازی
+                        {% block header_title %}ارتقای تجربه‌ای جدید از بازی{% endblock %}
                     </h1>
                     <div class="gt-hero-button wow animated-image">
-                        <a href="#" class="gt-theme-btn">خرید بازی</a>
-                        <a href="#" class="gt-theme-btn gt-style-border">
-                            نمایش بیشتر
+                        <a href="{% url 'home' %}" class="gt-theme-btn">خانه</a>
+                        <a href="{% url 'article_list' %}" class="gt-theme-btn gt-style-border">
+                            وبلاگ
                         </a>
                     </div>
                 </div>
