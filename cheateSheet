@@ -9,6 +9,9 @@ email_service failed log
 make a fullName input if fullName exist else email
 in admin_module if user is author can see the author sidebar else can send a ticket for author
 in admin_module sidebar active link
+in article detail is bug fix it with object category
+
+
 
 ROADMAP :
 finish the blog website
