@@ -12,13 +12,12 @@
                         </div>
                         <div class="gt-footer-content">
                             <p>
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                در تماس باشید و صفحات اجتماعی من را دنبال کنید تا از آخرین اخبار و فعالیت‌ها مطلع شوید.
                             </p>
                             <div class="gt-social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/arshia219675/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://web.telegram.org/k/#@arshia21420" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                                <a href="https://wa.me/989374641310" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -26,32 +25,32 @@
                 <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 wow fadeInUp rtl" data-wow-delay=".4s">
                     <div class="gt-footer-widget-items rtl">
                         <div class="gt-widget-head">
-                            <h5>استودیوی ما</h5>
+                            <h5>وبسایت ما</h5>
                         </div>
                         <ul class="gt-list-area">
                             <li>
-                                <a href="#">
-                                    درباره ما
+                                <a href="{% url 'home' %}">
+                                    خانه
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    تیم ما
+                                <a href="https://jobvision.ir/cv/41769812-111001" target="_blank">
+                                    رزومه من
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    تبلیغات
+                                <a href="{% url 'article_list' %}">
+                                    وبلاگ
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    اطلاعات حقوقی
+                                <a href="{% url 'contact' %}">
+                                    تماس با ما
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    همکاری
+                                <a href="{% url 'register' %}">
+                                    ثبت نام
                                 </a>
                             </li>
                         </ul>
@@ -64,64 +63,23 @@
                         </div>
                         <ul class="gt-list-area">
                             <li>
-                                <a href="#">
-                                    شرایط خدمات
+                                <a href="{% url 'login' %}">
+                                    ورود به حساب کاربری
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    حریم خصوصی / شرایط استفاده
+                                <a href="{% url 'register' %}">
+                                    ثبت نام
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    کارت‌های هدیه
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    نقد و بررسی بازی‌ها
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    سرویس‌های اشتراکی
+                                <a href="{% url 'profile' %}">
+                                    پروفایل کاربری
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="gt-footer-widget-items rtl">
-                        <div class="gt-widget-head">
-                            <h5>دانلود بازی های ما</h5>
-                        </div>
-                        <div class="gt-footer-app">
-                            <div class="app-image">
-                                <img src="{% static 'xsports/img/home-1/footer/app-1.jpg' %}" alt="img">
-                            </div>
-                            <div class="app-image">
-                                <img src="{% static 'xsports/img/home-1/footer/app-2.jpg' %}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom wow fadeInUp rtl" data-wow-delay=".3s">
-            <div class="footer-wrapper">
-                <p>اکس‌پورتس2025. تمامی حقوق محفوظ است.</p>
-                <ul class="gt-footer-list wow fadeInUp" data-wow-delay=".3s">
-                    <li>
-                        <a href="#">کوکی‌ها</a>
-                    </li>
-                    <li>
-                        <a href="#">حریم خصوصی</a>
-                    </li>
-                    <li>
-                        <a href="#">قوانین</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import ComingSoon
+
+
+@admin.register(ComingSoon)
+class ComingSoonAdmin(admin.ModelAdmin):
+    list_display = ['email', ]
