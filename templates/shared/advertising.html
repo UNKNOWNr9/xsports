@@ -1,0 +1,34 @@
+{% load static %}
+<!-- GT Newsletter Section Start -->
+<section class="gt-newsletter-section fix mb-4">
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% for error in ad_form.errors %}
+            <div class="alert alert-success">{{ error }}</div>
+        {% endfor %}
+
+        <div class="gt-newsletter-wrapper bg-cover rtl"
+             style="background-image: url({% static 'xsports/img/home-1/cta/newsletter-bg.jpg' %});">
+            <div class="shape">
+                <img src="{% static 'xsports/img/home-1/cta/drive.png' %}" alt="img">
+            </div>
+            <h4 class="wow fadeInLeft" data-wow-delay=".3s">
+                محل تبلیغات شما،
+                <br>
+                تلفن همراه خود را ثبت کنید تا با شما تماس بگیریم
+            </h4>
+            <form method="post" action="{{ request.path }}"> {% csrf_token %}
+                <div class="form-clt">
+                    {{ ad_form.phone }}
+                    <button type="submit" class="gt-theme-btn">
+                        ثبت تلفن
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

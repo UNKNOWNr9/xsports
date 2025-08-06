@@ -1,14 +1,21 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 from django.views.generic import View
 
+from article_module.models import Article
 from .forms import ComingSoonForm
 from .models import ComingSoon
 
 
-class HomeView(TemplateView):
+class HomeView(ListView):
     template_name = 'home_module/index.html'
+    model = Article
+    paginate_by = 6
+    context_object_name = 'article'
+
+    def get_queryset(self):
+        return Article.objects.published().order_by('-create_date')
 
 
 def footer_component_view(request):

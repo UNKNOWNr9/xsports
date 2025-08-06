@@ -1,5 +1,7 @@
 {% extends 'shared/_layout.html' %}
 {% load static %}
+{% load jalali_tags %}
+{% load thumbnail %}
 {% block title %}ایکس اسپورت | خانه{% endblock %}
 {% block header_subtitle %}وبسایت ارشیا صمیمی فر{% endblock %}
 {% block header_title %}به وب‌سایت رسمی ارشیا صمیمی‌فر خوش آمدید{% endblock %}
@@ -7,8 +9,8 @@
     <!-- GT About Section Start -->
     <section class="gt-about-section fix section-padding rtl">
         <h2 class="text">
-            اکسپورت <br>
-            2025
+            ارشیا <br>
+            صمیمی فر
         </h2>
         <div class="left-shape">
             <img src="{% static 'xsports/img/home-1/about/shape-1.png' %}" alt="img">
@@ -16,19 +18,17 @@
         <div class="container">
             <div class="gt-about-wrapper">
                 <div class="row g-4">
-                    <div class="col-lg-5">
+                    <div class="col-lg-10">
                         <div class="gt-about-content">
                             <div class="gt-section-title mb-0">
-                                <h6 class="wow fadeInUp">درباره اکسپورتس</h6>
+                                <h6 class="wow fadeInUp">ارشیا صمیمی فر</h6>
                                 <h2 class="wow fadeInUp rtl" data-wow-delay=".3s">
-                                    مسیر<br>
-                                    <span>اکسپورتس</span>
+                                    سوابق<br>
+                                    <span>من</span>
                                 </h2>
                             </div>
                             <p class="gt-about-text wow fadeInUp rtl" data-wow-delay=".5s">
-                                یک استودیو بازی‌سازی که بازی‌های ویدیویی هیجان‌انگیز و باکیفیت بالا را خلق می‌کند و
-                                تمرکز
-                                اصلی‌اش بر گیم‌پلی و مکانیک‌های جذاب و فراگیر است.
+                                از آنجاییکه به برنامه نویسی خیلی علاقه داشتم، بعد از دریافت مدرک کارشناسی کامپیوتر بصورت خودآموز شروع به برنامه نویسی و یادگیری در این خصوص کردم. بسیار مشتاق رشد و توسعه مهارت های خودم می باشم و برای این منظور بدنبال استفاده از تجربیات افرادی با مهارت های بالاتر هستم یک سال سابقه در شرکت زیتل به عنوان کارشناس نصب اینترنت tdlte و بعد از آن سابقه در شرکت هلدینگ گروه اقتصادی تاو به عنوان پشتیبان فنی IT (Help Desk) مشغول به کار هستم و تجربه کسب کردم. بسیار پرتلاش، خلاق و یادگیرنده هستم و فرصتی را برای رشد از دست نخواهم داد.
                             </p>
                             <div class="gt-about-box-wrapper  wow fadeInUp" data-wow-delay=".3s">
                                 <div class="gt-about-box-item">
@@ -37,9 +37,9 @@
                                             <img src="{% static 'xsports/img/home-1/icon/icon-1.svg' %}" alt="img">
                                         </div>
                                         <div class="content">
-                                            <h5>پشتیبانی واقعیت مجازی</h5>
+                                            <h5>توسعه بک‌ اند</h5>
                                             <p>
-                                                یک استودیو بازی‌سازی که بازی‌های ویدیویی هیجان‌انگیز می‌سازد
+                                                طراحی و پیاده‌سازی منطق سمت سرور با استفاده از Django و DRF
                                             </p>
                                         </div>
                                     </div>
@@ -48,9 +48,9 @@
                                             <img src="{% static 'xsports/img/home-1/icon/icon-2.svg' %}" alt="img">
                                         </div>
                                         <div class="content">
-                                            <h5>تعیین موقعیت مکانی</h5>
+                                            <h5>توسعه فرانت اند</h5>
                                             <p>
-                                                یک استودیو بازی‌سازی که بازی‌های ویدیویی هیجان‌انگیز می‌سازد
+                                                طراحی صفحات استاتیک و ریسپانسیو با استفاده از HTML5 و CSS3 و flexbox
                                             </p>
                                         </div>
                                     </div>
@@ -61,9 +61,9 @@
                                             <img src="{% static 'xsports/img/home-1/icon/icon-3.svg' %}" alt="img">
                                         </div>
                                         <div class="content">
-                                            <h5>چند بعدی</h5>
+                                            <h5>پشتیبانی فنی</h5>
                                             <p>
-                                                یک استودیو بازی‌سازی که بازی‌های ویدیویی هیجان‌انگیز می‌سازد
+                                                تجربه‌ی پاسخ‌گویی به کاربران و رفع مشکلات نرم‌افزاری و شبکه‌ای
                                             </p>
                                         </div>
                                     </div>
@@ -72,29 +72,12 @@
                                             <img src="{% static 'xsports/img/home-1/icon/icon-4.svg' %}" alt="img">
                                         </div>
                                         <div class="content">
-                                            <h5>سیستم کنسول</h5>
+                                            <h5>مستندسازی و آموزش</h5>
                                             <p>
-                                                یک استودیو بازی‌سازی که بازی‌های ویدیویی هیجان‌انگیز می‌سازد
+                                                تولید مستندات فنی و آموزش تیم برای استفاده از سیستم‌ها
                                             </p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="row g-4">
-                            <div class="col-xl-7 col-lg-12 col-md-7">
-                                <div class="gt-about-image wow img-custom-anim-top" data-wow-duration="1.3s"
-                                     data-wow-delay="0.3s">
-                                    <img src="{% static 'xsports/img/home-1/about/about-1.png' %}" alt="img">
-                                </div>
-                            </div>
-                            <div class="col-xl-5 col-lg-12 col-md-5">
-                                <div class="gt-about-image gt-about-image-2">
-                                    <img src="{% static 'xsports/img/home-1/about/about-2.png' %}" alt="img"
-                                         class="wow img-custom-anim-right" data-wow-duration="1.3s"
-                                         data-wow-delay="0.3s">
                                 </div>
                             </div>
                         </div>
@@ -114,13 +97,13 @@
                 <div class="swiper-wrapper slide-transtion">
                     <div class="swiper-slide brand-slide-element">
                         <div class="marquee-text-3">
-                            <span class="text-marquee">رویارویی نهایی</span>
+                            <span class="text-marquee">a backend developer experienced in Django with a passion for UI using HTML/CSS.</span>
                             <span><img src="{% static 'xsports/img/home-1/circle.png' %}" alt="img"></span>
                         </div>
                     </div>
                     <div class="swiper-slide brand-slide-element">
                         <div class="marquee-text-3">
-                            <span class="text-marquee">جنگجویان میدان نبرد</span>
+                            <span class="text-marquee">Arshia Samimifar</span>
                         </div>
                     </div>
 
@@ -132,13 +115,13 @@
                 <div class="swiper-wrapper slide-transtion">
                     <div class="swiper-slide brand-slide-element">
                         <div class="marquee-text-3">
-                            <span class="text-marquee">مسابقات آخرین ایستادگی</span>
+                            <span class="text-marquee">توسعه‌دهنده‌ی بک‌اند با تجربه در Django و علاقه‌مند به رابط کاربری با HTML/CSS</span>
                             <span><img src="{% static 'xsports/img/home-1/circle.png' %}" alt="img"></span>
                         </div>
                     </div>
                     <div class="swiper-slide brand-slide-element">
                         <div class="marquee-text-3">
-                            <span class="text-marquee">سلطنت جنگجو در پایان بازی</span>
+                            <span class="text-marquee">ارشیا صمیمی فر</span>
                         </div>
                     </div>
                 </div>
@@ -156,29 +139,29 @@
                 <div class="row g-4 justify-content-between">
                     <div class="col-lg-5">
                         <div class="gt-games-content">
-                            <h6 class="text-white wow animated-image">بهترین امکانات بازی در جهان
+                            <h6 class="text-white wow animated-image"> بخش وبلاگ من
                             </h6>
                             <h2 class="text-white wow animated-image">
-                                خلق افسانه‌ها<br>
-                                دنیای بازی!
+                                مقالاتی<br>
+                                از همه ‌چیز و همه ‌جا
+
                             </h2>
                             <div class="gt-button wow animated-image">
-                                <a href="#" class="gt-theme-btn gt-style-border">
-                                    مشاهده بیشتر
+                                <a href="{% url 'article_list' %}" class="gt-theme-btn gt-style-border">
+                                    مشاهده
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="gt-games-content style-2">
-                            <h6 class="text-white wow animated-image">عرضه جدیدترین بازی</h6>
+                            <h6 class="text-white wow animated-image">بخش تماس با من</h6>
                             <h2 class="text-white wow animated-image">
-                                بازی شروع شد قدرتت را
-                                بالا ببر
+                                با من درتماس باشید
                             </h2>
                             <div class="gt-button gt-style-2 wow animated-image">
                                 <a href="#" class="gt-theme-btn gt-style-border">
-                                    مشاهده بیشتر
+                                    مشاهده
                                 </a>
                             </div>
                         </div>
@@ -188,512 +171,6 @@
         </div>
     </section>
 
-    <!-- GT Game Section Start -->
-    <section class="gt-game-section section-padding fix">
-        <div class="container-fluid rtl">
-            <div class="gt-section-title-2 text-center">
-                <h6 class="wow fadeInUp">ثبات فنی تضمین شده</h6>
-                <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                    بازی‌هایی با وضوح بالا
-                </h2>
-            </div>
-            <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-1.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-2.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-3.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-4.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-5.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-6.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-7.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="gt-gaming-card-item">
-                        <div class="gt-gaming-image">
-                            <img src="{% static 'xsports/img/home-1/game/game-8.png' %}" alt="img">
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="gt-gaming-content">
-                                <h6>متاورس</h6>
-                                <h3>
-                                    <a href="#">گیم‌پلی انتقام شیرین</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GT Video Section Start -->
-    <section class="gt-video-section section-padding pt-0 fix rtl">
-        <div class="container">
-            <div class="gt-video-wrapper style-2 bg-cover"
-                 style="background-image: url({% static 'xsports/img/home-1/feature/video-bg.jpg' %});">
-                <div class="gt-video-content">
-                    <h6 class="wow fadeInUp" data-wow-delay=".3s">با عشق بازی کن</h6>
-                    <h2 class="wow fadeInUp" data-wow-delay=".5s">
-                        انتقام شیرین <br>
-                        گیم‌پلی
-                    </h2>
-                    <a href="#" class="gt-theme-btn">
-                        همین حالا بازی کن
-                    </a>
-                </div>
-                <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
-                    <i class="fa-solid fa-play"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- GT Shop Section Start -->
-    <section class="gt-shop-section section-padding fix bg-cover rtl"
-             style="background-image: url({% static 'xsports/img/home-1/shop/shop-bg.jpg' %});">
-        <div class="container">
-            <div class="gt-section-title-2 text-center">
-                <h6 class="wow fadeInUp">تجهیزات بازی</h6>
-                <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                    آماده شو با تجهیزات گیمینگ
-                </h2>
-            </div>
-            <div class="swiper gt-shop-slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="gt-shop-card-item">
-                            <span>25 درصد تخفیف</span>
-                            <div class="gt-shop-image">
-                                <img src="{% static 'xsports/img/home-1/shop/shop-1.png' %}" alt="img">
-                                <ul class="gt-shop-icon d-grid justify-content-center align-items-center">
-                                    <li>
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="gt-shop-content">
-                                <h5>
-                                    <a href="#">
-                                        لورم اپسیوم<br>
-                                        و لورم اپسیوم
-                                    </a>
-                                </h5>
-                                <p>280تومان-380تومان</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-shop-card-item">
-                            <span>25 درصد تخفیف</span>
-                            <div class="gt-shop-image">
-                                <img src="{% static 'xsports/img/home-1/shop/shop-2.png' %}" alt="img">
-                                <ul class="gt-shop-icon d-grid justify-content-center align-items-center">
-                                    <li>
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="gt-shop-content">
-                                <h5>
-                                    <a href="#">
-                                        لورم اپسیوم<br>
-                                        و لورم اپسیوم
-                                    </a>
-                                </h5>
-                                <p>280تومان-380تومان</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-shop-card-item">
-                            <span>25 درصد تخفیف</span>
-                            <div class="gt-shop-image">
-                                <img src="{% static 'xsports/img/home-1/shop/shop-3.png' %}" alt="img">
-                                <ul class="gt-shop-icon d-grid justify-content-center align-items-center">
-                                    <li>
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="gt-shop-content">
-                                <h5>
-                                    <a href="#">
-                                        لورم اپسیوم<br>
-                                        و لورم اپسیوم
-                                    </a>
-                                </h5>
-                                <p>280تومان-380تومان</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-shop-card-item">
-                            <span>25 درصد تخفیف</span>
-                            <div class="gt-shop-image">
-                                <img src="{% static 'xsports/img/home-1/shop/shop-4.png' %}" alt="img">
-                                <ul class="gt-shop-icon d-grid justify-content-center align-items-center">
-                                    <li>
-                                        <a href="#"><i class="far fa-heart"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="gt-shop-content">
-                                <h5>
-                                    <a href="#">
-                                        لورم اپسیوم<br>
-                                        و لورم اپسیوم
-                                    </a>
-                                </h5>
-                                <p>280تومان-380تومان</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GT Testimonial Section Start -->
-    <section class="gt-testimonial-section section-padding fix section-bg-1 ">
-        <div class="right-shape">
-            <img src="{% static 'xsports/img/home-1/testimonial/shape.png' %}" alt="img">
-        </div>
-        <div class="container rtl">
-            <div class="gt-section-title-area">
-                <div class="gt-section-title-2">
-                    <h6 class="wow fadeInUp">تجربیات کاربران ما</h6>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                        تجربیات کاربران ما
-                    </h2>
-                </div>
-                <div class="rating wow fadeInUp" data-wow-delay=".5s">
-                    <span>امتیازدهی بیش از ۱۲۰۰ مشتری</span>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="gt-testimonial-wrapper">
-                <div class="row g-4 justify-content-between">
-                    <div class="col-lg-7">
-                        <div class="swiper gt-testimonial-slider">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="gt-testimonial-card-item">
-                                        <div class="gt-client-info">
-                                            <div class="image">
-                                                <img src="{% static 'xsports/img/home-1/testimonial/client-1.png' %}" alt="img">
-                                            </div>
-                                            <div class="text">
-                                                <h6>دنیل اسمیت</h6>
-                                                <p>مهندس ارشد</p>
-                                            </div>
-                                        </div>
-                                        <div class="gt-testi-content">
-                                            <div class="icon">
-                                                <img src="{% static 'xsports/img/home-1/icon/quate.svg' %}" alt="img">
-                                            </div>
-                                            <p>
-                                                این آژانس دیجیتال به‌طور کامل حضور آنلاین ما را متحول کرد. تخصص، خلاقیت
-                                                و
-                                                دقت آن‌ها فراتر از تمام انتظارات ما بود. ما به شدت آن‌ها را توصیه
-                                                می‌کنیم...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="gt-testimonial-card-item">
-                                        <div class="gt-client-info">
-                                            <div class="image">
-                                                <img src="{% static 'xsports/img/home-1/testimonial/client-1.png' %}" alt="img">
-                                            </div>
-                                            <div class="text">
-                                                <h6>دنیل اسمیت</h6>
-                                                <p>مهندس ارشد</p>
-                                            </div>
-                                        </div>
-                                        <div class="gt-testi-content">
-                                            <div class="icon">
-                                                <img src="{% static 'xsports/img/home-1/icon/quate.svg' %}" alt="img">
-                                            </div>
-                                            <p>
-                                                این آژانس دیجیتال به‌طور کامل حضور آنلاین ما را دگرگون کرد. تخصص، خلاقیت
-                                                و
-                                                توجه دقیق آن‌ها فراتر از تمام انتظارات ما بود. ما به شدت آن‌ها را توصیه
-                                                می‌کنیم...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="gt-testimonial-card-item">
-                                        <div class="gt-client-info">
-                                            <div class="image">
-                                                <img src="{% static 'xsports/img/home-1/testimonial/client-1.png' %}" alt="img">
-                                            </div>
-                                            <div class="text">
-                                                <h6>دنیل اسمیت</h6>
-                                                <p>مهندس ارشد</p>
-                                            </div>
-                                        </div>
-                                        <div class="gt-testi-content">
-                                            <div class="icon">
-                                                <img src="{% static 'xsports/img/home-1/icon/quate.svg' %}" alt="img">
-                                            </div>
-                                            <p>
-                                                این آژانس دیجیتال به‌طور کامل حضور آنلاین ما را دگرگون کرد. تخصص، خلاقیت
-                                                و
-                                                توجه دقیق آن‌ها فراتر از تمام انتظارات ما بود. ما به شدت آن‌ها را توصیه
-                                                می‌کنیم...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-dot ltr">
-                            <div class="dot"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="text-image">
-                            <img src="{% static 'xsports/img/home-1/testimonial/text-image.png' %}" alt="Image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- GT Team Section Start -->
-    <section class="gt-team-section section-padding fix bg-cover"
-             style="background-image: url({% static 'xsports/img/home-1/team/team-bg.jpg' %});">
-        <div class="right-shape wow animated-image">
-            <img src="{% static 'xsports/img/home-1/team/shape-1.png' %}" alt="img">
-        </div>
-        <div class="container rtl">
-            <div class="gt-team-wrapper">
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-8">
-                        <div class="swiper gt-team-slider">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="gt-team-card-item">
-                                        <div class="gt-team-image">
-                                            <img src="{% static 'xsports/img/home-1/team/team-2.jpg' %}" alt="img">
-                                            <div class="gt-team-content">
-                                                <div class="gt-social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                                </div>
-                                                <h3>
-                                                    <a href="#">چون چینگ</a>
-                                                </h3>
-                                                <p>طراح هنری بازی</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="gt-team-card-item">
-                                        <div class="gt-team-image">
-                                            <img src="{% static 'xsports/img/home-1/team/team-1.jpg' %}" alt="img">
-                                            <div class="gt-team-content">
-                                                <div class="gt-social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                                </div>
-                                                <h3>
-                                                    <a href="#">چون چینگ</a>
-                                                </h3>
-                                                <p>طراح هنری بازی</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="gt-team-card-item">
-                                        <div class="gt-team-image">
-                                            <img src="{% static 'xsports/img/home-1/team/team-3.jpg' %}" alt="img">
-                                            <div class="gt-team-content">
-                                                <div class="gt-social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                                </div>
-                                                <h3>
-                                                    <a href="#">چون چینگ</a>
-                                                </h3>
-                                                <p>طراح هنری بازی</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 rtl">
-                        <div class="gt-team-cont">
-                            <div class="gt-section-title-2 rtl">
-                                <h6 class="text-white wow fadeInUp">بهترین گیمر ما</h6>
-                                <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">
-                                    بهترین تیم <br> گیم ما
-                                </h2>
-                            </div>
-                            <p class="text-white gt-text rtl">
-                                یک استودیو بازی‌سازی که بازی‌های ویدیویی هیجان‌انگیز و باکیفیت بالا خلق می‌کند و تمرکز
-                                اصلی
-                                آن بر گیم‌پلی و مکانیک‌های جذاب و فراگیر است.
-                            </p>
-                            <div class="array-buttons wow fadeInUp" data-wow-delay=".5s">
-                                <button class="array-prev"><i class="fa-solid fa-arrow-up"></i></button>
-                                <button class="array-next"><i class="fa-solid fa-arrow-down"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- GT News Section Start -->
     <section class="gt-news-section section-padding fix rtl">
@@ -705,83 +182,42 @@
                         جدیدترین اخبار و بلاگ
                     </h2>
                 </div>
-                <a href="#" class="gt-theme-btn gt-style-border">
+                <a href="{% url 'article_list' %}" class="gt-theme-btn gt-style-border">
                     مشاهده همه بلاگ‌ها
                 </a>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="gt-news-card-item rtl">
-                        <div class="gt-news-image">
-                            <img src="{% static 'xsports/img/home-1/news/news-1.jpg' %}" alt="img">
-                        </div>
-                        <div class="gt-news-content">
-                            <ul class="gt-list">
-                                <li>
-                                    <i class="fa-regular fa-calendar"></i>
-                                    پنج خرداد 1403
-                                </li>
-                            </ul>
-                            <h4>
-                                <a href="#">
-                                    تحول بازی‌های آنلاین و رشد آن‌ها
-                                </a>
-                            </h4>
-                            <p>
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                            </p>
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="gt-news-card-item rtl">
-                        <div class="gt-news-image">
-                            <img src="{% static 'xsports/img/home-1/news/news-2.jpg' %}" alt="img">
-                        </div>
-                        <div class="gt-news-content">
-                            <ul class="gt-list">
-                                <li>
-                                    <i class="fa-regular fa-calendar"></i>
-                                    پنج خرداد 1403
-                                </li>
-                            </ul>
-                            <h4>
-                                <a href="#">
-                                    تحول بازی‌های آنلاین و رشد آن‌ها
-                                </a>
-                            </h4>
-                            <p>
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                            </p>
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
+                {% for obj in article %}
+                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="gt-news-card-item rtl">
+                            <div class="gt-news-image">
+                                {% thumbnail obj.image "390x201" crop='center' as im %}
+                                    <img src="{{ im.url }}" alt="img">
+                                {% endthumbnail %}
+                            </div>
+                            <div class="gt-news-content">
+                                <ul class="gt-list">
+                                    <li>
+                                        <i class="fa-regular fa-calendar"></i>
+                                        {{ obj.create_date.date | to_jalali }}
+                                        <i class="fa-regular fa-clock"></i>
+                                        {{ obj.create_date.time }}
+                                    </li>
+                                </ul>
+                                <h4>
+                                    <a href="{% url 'article_detail' obj.slug %}">
+                                        {{ obj.title | truncatechars:50 }}
+                                    </a>
+                                </h4>
+                                <p>
+                                    {{ obj.content | truncatechars:210 }}
+                                </p>
+                                <a href="{% url 'article_detail' obj.slug %}" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                    <div class="gt-news-card-item rtl">
-                        <div class="gt-news-image">
-                            <img src="{% static 'xsports/img/home-1/news/news-3.jpg' %}" alt="img">
-                        </div>
-                        <div class="gt-news-content">
-                            <ul class="gt-list">
-                                <li>
-                                    <i class="fa-regular fa-calendar"></i>
-                                    پنج خرداد 1403
-                                </li>
-                            </ul>
-                            <h4>
-                                <a href="#">
-                                    تحول بازی‌های آنلاین و رشد آن‌ها
-                                </a>
-                            </h4>
-                            <p>
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                            </p>
-                            <a href="#" class="icon"><i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
     </section>
@@ -797,14 +233,14 @@
                     <div class="col-lg-7">
                         <div class="gt-cta-content">
                             <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                                به ایکس‌پورتس بپیوندید <br>
-                                و امروز تبدیل به بازیکن حرفه‌ای بعدی شوید!
+                                به جمع نویسندگان بپیوندید <br>
+                                و امروز تبدیل به نویسنده حرفه‌ای بعدی شوید!
                             </h2>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="gt-right-image">
-                            <a href="#" class="gt-theme-btn wow fadeInUp" data-wow-delay=".5s">
+                            <a href="{% url 'author_request' %}" class="gt-theme-btn wow fadeInUp" data-wow-delay=".5s">
                                 به جمع ما بپیوندید
                             </a>
                             <div class="gt-cta-image wow animated-image">
@@ -817,79 +253,4 @@
         </div>
     </section>
 
-    <!-- GT Brand Section Start -->
-    <div class="gt-brand-section section-padding fix rtl">
-        <div class="container">
-            <div class="swiper gt-brand-slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="gt-brand-box">
-                            <div class="gt-brand-image text-center">
-                                <img src="{% static 'xsports/img/home-1/brand/b-1.png' %}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-brand-box">
-                            <div class="gt-brand-image text-center">
-                                <img src="{% static 'xsports/img/home-1/brand/b-2.png' %}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-brand-box">
-                            <div class="gt-brand-image text-center">
-                                <img src="{% static 'xsports/img/home-1/brand/b-2.png' %}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-brand-box">
-                            <div class="gt-brand-image text-center">
-                                <img src="{% static 'xsports/img/home-1/brand/b-3.png' %}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-brand-box">
-                            <div class="gt-brand-image text-center">
-                                <img src="{% static 'xsports/img/home-1/brand/b-4.png' %}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="gt-brand-box">
-                            <div class="gt-brand-image text-center">
-                                <img src="{% static 'xsports/img/home-1/brand/b-5.png' %}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- GT Newsletter Section Start -->
-    <section class="gt-newsletter-section fix mb-4 rtl">
-        <div class="container">
-            <div class="gt-newsletter-wrapper bg-cover"
-                 style="background-image: url({% static 'xsports/img/home-1/cta/newsletter-bg.jpg' %});">
-                <div class="shape">
-                    <img src="{% static 'xsports/img/home-1/brand/b-6.png' %}" alt="img">
-                </div>
-                <h4>
-                    امروز ثبت‌نام کنید <br>
-                    تا جدیدترین اخبار و دیدگاه‌ها را دریافت کنید.
-                </h4>
-                <form action="#">
-                    <div class="form-clt">
-                        <input type="text" name="email" id="email" placeholder="آدرس ایمیل شما">
-                        <button type="submit" class="gt-theme-btn">
-                            همین حالا مشترک شوید
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
 {% endblock %}

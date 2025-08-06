@@ -1,14 +1,15 @@
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect, reverse, Http404
-from django.views.generic import View, ListView, DeleteView, UpdateView
-from .forms import EditProfileForm, ChangePasswordForm
-from account_module.models import CustomUser
-from django.contrib.auth import update_session_auth_hash
-from django.contrib import messages
-from .forms import ArticleForm, AuthorRequestForm
-from .mixins import AuthorRequiredMixin
-from article_module.models import Article
 from django.urls import reverse_lazy
+from django.views.generic import View, ListView, DeleteView, UpdateView
+
+from account_module.models import CustomUser
+from article_module.models import Article
+from .forms import ArticleForm, AuthorRequestForm
+from .forms import EditProfileForm, ChangePasswordForm
+from .mixins import AuthorRequiredMixin
 from .models import AuthorRequest
 
 
@@ -165,6 +166,8 @@ class ArticleDeleteView(AuthorRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class AuthorRequestView(LoginRequiredMixin, View):
+    login_url = '/account/login/'
+
     def get(self, request):
         author_request_form = AuthorRequestForm()
         context = {
