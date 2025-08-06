@@ -72,8 +72,12 @@ WSGI_APPLICATION = 'xsports.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'xsportdb',
+        'USER': 'postgres',
+        'HOST': 'LOCALHOST',
+        'PASSWORD': 'Arshia21@.comm',
+        'PORT': 21212,
     }
 }
 
