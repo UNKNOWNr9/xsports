@@ -1,12 +1,9 @@
 Python Start : 70
 Django Start : 100
-git start : 4
 
 TODO :
 make url copy from title + persian lang
 جلوگیری از اسپم کردم فرم ها مثل لاگین
-email_service failed log
-make a fullName input if fullName exist else email
 in admin_module if user is author can see the author sidebar else can send a ticket for author
 in admin_module sidebar active link
 in article detail is bug fix it with object category

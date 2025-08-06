@@ -101,17 +101,7 @@
 {% render_partial 'home_module.views.header_component_view' %}
 
 <!-- GT Search Start -->
-<div class="search-popup">
-    <div class="search-popup__overlay search-toggler"></div>
-    <div class="search-popup__content rtl">
-        <form role="search" method="get" class="search-popup__form" action="#">
-            <input type="text" id="search" name="search" placeholder="اینجا جستجو کنید...">
-            <button type="submit" aria-label="search submit" class="search-btn">
-                <span><i class="fa-regular fa-magnifying-glass"></i></span>
-            </button>
-        </form>
-    </div>
-</div>
+{#Search section is here#}
 <section class="hero-section hero-1 fix bg-cover rtl"
          style="background-image: url(
                  {% block header_bg %}{% static 'xsports/img/home-1/hero/hero-bg.jpg' %}{% endblock %});">
