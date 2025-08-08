@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import ListView
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 
 from article_module.models import Article
 from .forms import ComingSoonForm

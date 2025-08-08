@@ -1,0 +1,27 @@
+{% extends 'shared/_layout.html' %}
+{% load static %}
+{% block header_title %}صفحه مورد نظر شما پیدا نشد!{% endblock %}
+{% block header_subtitle %}404{% endblock %}
+{% block title %}404{% endblock %}
+{% block content %}
+    <!-- GT Error Section Start -->
+    <section class="gt-error-section section-padding fix">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="gt-error-items">
+                        <div class="gt-error-image wow fadeInUp" data-wow-delay=".3s">
+                            <img src="{% static 'xsports/img/inner-page/404.png' %}" alt="img">
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".5s">
+                            !صفحه مورد نظر شما پیدا نشد
+                        </h2>
+                        <a href="{% url 'home' %}" class="gt-theme-btn">
+                            برگشت به خانه
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
